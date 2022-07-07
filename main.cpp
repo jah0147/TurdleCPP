@@ -20,6 +20,8 @@ void test()
     wordGen wordGen;
     std::string randWord = wordGen.selectWord();
     std::cout << "The random chosen word is: " << randWord << std::endl;
+    std::string randLetters = wordGen.givenLetters(randWord, difficulty);
+    std::cout <<"The random letters chosen are: " << randLetters << std::endl;
 }
 
 int main() {

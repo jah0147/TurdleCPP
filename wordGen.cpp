@@ -54,3 +54,78 @@ int wordGen::lineNum()
     }
     return count;
 }
+
+std::string wordGen::givenLetters(std::string randWord, int difficulty)
+{
+    int wordLength = randWord.length();
+    std::string randGivenLetters[wordLength];
+    std::string letters;
+    srand(time(NULL));
+    int randNum1 = rand() % wordLength;
+    int randNum2 = rand() % wordLength;
+
+    //Creating blank array
+    for(int i = 0; i < wordLength; i++)
+    {
+        randGivenLetters[i] = "_";
+    }
+
+    switch (difficulty)
+    {
+        case EASY:
+            //ensures that there are two random letters generated
+            while (randNum1 == randNum2)
+            {
+                randNum2 = rand() % wordLength;
+            }
+            //Putting the random chosen letters in
+            randGivenLetters[randNum1] = randWord[randNum1];
+            randGivenLetters[randNum2] = randWord[randNum2];
+            std::cout << "Your random given letters are ";
+            for (int i = 0; i < wordLength; i++)
+            {
+                std::cout << randGivenLetters[i];
+                if ((i < (wordLength - 1))) //prints spaces
+                {
+                    std::cout << " ";
+                }
+            }
+            std::cout << std::endl;
+            break;
+
+        case MEDIUM:
+            randGivenLetters[randNum1] = randWord[randNum1];
+
+            std::cout << "Your random given letter is ";
+            for (int i = 0; i < wordLength; i++)
+            {
+                std::cout << randGivenLetters[i];
+                if((i < (wordLength - 1))) //prints spaces
+                {
+                    std::cout <<" ";
+                }
+            }
+            std::cout << std::endl;
+            break;
+
+        case HARD:
+            //No free letters for hard mode
+            break;
+
+        default:
+            std::cout << "There was an error with the Difficulty in wordGen::GivenLetters" << std::endl;
+            std::cout << "Defaulting to Easy Difficulty..." << std::endl;
+            difficulty = EASY;
+    }
+    std::string randLettersStr = arrayToString(randGivenLetters, wordLength);
+    return randLettersStr;
+}
+
+std::string wordGen::arrayToString(std::string* array, int size)
+{
+    std::string s = "";
+    for (int i = 0; i < size; i++) {
+        s = s + array[i];
+    }
+    return s;
+}
