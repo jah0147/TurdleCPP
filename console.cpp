@@ -90,22 +90,19 @@ void console::gameMode(std::string freeLetter, int *difficulty, int *triesAm)
         std::cin >> userInput;
     }
 
-    *difficulty = std::stoi(userInput);
+    *difficulty = std::stoi(userInput); //sets difficulty to an int of user string input
 
     switch (*difficulty)
     {
         case EASY:
             *triesAm = 10;
-
             std::cout << "-----------------EASY MODE-----------------" << std::endl;
             std::cout << "You will be given a random letter in the word and" << triesAm << "tries" << std::endl;
             std::cout << "\n Your free letters are\n"<< freeLetter << std::endl;
-
             break;
 
         case MEDIUM:
             *triesAm = 8;
-
             std::cout << "-----------------MEDIUM MODE-----------------" << std::endl;
             std::cout << "You will be given a random letter in the word and" << triesAm << "tries" << std::endl;
             std::cout << "\n Your free letters are\n"<< freeLetter << std::endl;
@@ -113,18 +110,17 @@ void console::gameMode(std::string freeLetter, int *difficulty, int *triesAm)
 
         case HARD:
             *triesAm = 5;
-
             std::cout << "-----------------Hard MODE-----------------" << std::endl;
             std::cout << "You will be given a random letter in the word and" << triesAm << "tries" << std::endl;
             std::cout << "\n Your free letters are\n"<< freeLetter << std::endl;
             break;
 
         default:
+            *triesAm = 10;
+            *difficulty = EASY;
             std::cout << "That is an invalid Difficulty..." << std::endl;
             std::cout << "The difficulty will be set to EASY by default." << std::endl;
             std::cout << "\nYour free letters are\n"<< freeLetter << std::endl;
-            *triesAm = 10;
-            *difficulty = EASY;
     }
 
     //return difficulty , triesAm
