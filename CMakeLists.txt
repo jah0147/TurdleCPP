@@ -3,4 +3,4 @@ project(TurdleCPP)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(TurdleCPP main.cpp console.cpp console.h delay.cpp delay.h wordGen.cpp wordGen.h)
+add_executable(TurdleCPP main.cpp console.cpp console.h delay.cpp delay.h wordGen.cpp wordGen.h game.cpp game.h)

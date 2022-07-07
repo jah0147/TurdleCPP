@@ -73,6 +73,12 @@ build CMakeFiles/TurdleCPP.dir/wordGen.cpp.obj: CXX_COMPILER__TurdleCPP_Debug C$
   OBJECT_DIR = CMakeFiles\TurdleCPP.dir
   OBJECT_FILE_DIR = CMakeFiles\TurdleCPP.dir
 
+build CMakeFiles/TurdleCPP.dir/game.cpp.obj: CXX_COMPILER__TurdleCPP_Debug C$:/Users/jacob_howard/CLionProjects/TurdleCPP/game.cpp || cmake_object_order_depends_target_TurdleCPP
+  DEP_FILE = CMakeFiles\TurdleCPP.dir\game.cpp.obj.d
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles\TurdleCPP.dir
+  OBJECT_FILE_DIR = CMakeFiles\TurdleCPP.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target TurdleCPP
@@ -81,7 +87,7 @@ build CMakeFiles/TurdleCPP.dir/wordGen.cpp.obj: CXX_COMPILER__TurdleCPP_Debug C$
 #############################################
 # Link the executable TurdleCPP.exe
 
-build TurdleCPP.exe: CXX_EXECUTABLE_LINKER__TurdleCPP_Debug CMakeFiles/TurdleCPP.dir/main.cpp.obj CMakeFiles/TurdleCPP.dir/console.cpp.obj CMakeFiles/TurdleCPP.dir/delay.cpp.obj CMakeFiles/TurdleCPP.dir/wordGen.cpp.obj
+build TurdleCPP.exe: CXX_EXECUTABLE_LINKER__TurdleCPP_Debug CMakeFiles/TurdleCPP.dir/main.cpp.obj CMakeFiles/TurdleCPP.dir/console.cpp.obj CMakeFiles/TurdleCPP.dir/delay.cpp.obj CMakeFiles/TurdleCPP.dir/wordGen.cpp.obj CMakeFiles/TurdleCPP.dir/game.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\TurdleCPP.dir

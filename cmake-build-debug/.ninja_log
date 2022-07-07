@@ -1,10 +1,11 @@
 # ninja log v5
 2	529	6789135486172909	CMakeFiles/TurdleCPP.dir/main.cpp.obj	3f20eedfff2f6c45
 3	564	6789027744978318	CMakeFiles/TurdleCPP.dir/console.cpp.obj	3f35ca48decaf6b0
-2	483	6789212052576482	CMakeFiles/TurdleCPP.dir/wordGen.cpp.obj	6a1ad3251d03b19e
-490	814	6789212055808065	TurdleCPP.exe	1e946c7401226cbf
-18	290	6788412886416652	CMakeFiles/TurdleCPP.dir/delay.cpp.obj	20d8917b6528fe3f
-3	620	6789215368238022	CMakeFiles/TurdleCPP.dir/wordGen.cpp.obj	6a1ad3251d03b19e
-628	994	6789215371773005	TurdleCPP.exe	1e946c7401226cbf
 2	460	6789217911637463	CMakeFiles/TurdleCPP.dir/wordGen.cpp.obj	6a1ad3251d03b19e
 466	757	6789217914512965	TurdleCPP.exe	1e946c7401226cbf
+18	290	6788412886416652	CMakeFiles/TurdleCPP.dir/delay.cpp.obj	20d8917b6528fe3f
+12	359	6789223005156741	CMakeFiles/TurdleCPP.dir/game.cpp.obj	ed1b3a27906df1ad
+2	489	6789223006455034	CMakeFiles/TurdleCPP.dir/wordGen.cpp.obj	6a1ad3251d03b19e
+489	808	6789223009545081	TurdleCPP.exe	186ccb15d309341c
+2	379	6789224909034593	CMakeFiles/TurdleCPP.dir/game.cpp.obj	ed1b3a27906df1ad
+387	781	6789224912984570	TurdleCPP.exe	186ccb15d309341c
