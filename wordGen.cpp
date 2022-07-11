@@ -6,11 +6,11 @@
 #include "wordGen.h"
 #include "time.h"
 
-std::string wordGen::selectWord()
+std::string wordGen::selectWord(std::string wordsArray[], unsigned long numOfLinesInFile)
 {
-    int lineNumbers = lineNum(); //gets the amount of lines in a file
-    std::string wordsArray[lineNumbers];
-    int sizeOfArr = sizeof(wordsArray)/ sizeof(wordsArray[0]) - 1; //getting the size of array after created
+    //*numOfLinesInList = lineNum(); //gets the amount of lines in a file
+    //*wordsArray[*numOfLinesInList];
+    int sizeOfArr = numOfLinesInFile - 1; //sizeof(wordsArray)/ sizeof(wordsArray[0]) - 1; //getting the size of array after created
     std::ifstream File(filename);
     int i = 0;
 
@@ -22,7 +22,7 @@ std::string wordGen::selectWord()
         }
     } else
     {
-        std::cout << "Error opening file" << std::endl;
+        std::cout << "Error opening word list" << std::endl;
     }
     File.close();
     //creating random chosen word

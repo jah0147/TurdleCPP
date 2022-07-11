@@ -13,7 +13,7 @@
 class wordGen {
 public:
     //wordGen();
-    std::string selectWord();
+    std::string selectWord(std::string wordsArray[], unsigned long numOfLinesInFile);
     int lineNum();
     std::string givenLetters(std::string randWord, int difficulty);
     std::string arrayToString(std::string* array, int size);
