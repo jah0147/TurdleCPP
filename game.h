@@ -6,6 +6,7 @@
 #define TURDLECPP_GAME_H
 
 #include <string>
+#include <vector>
 #include <algorithm>
 #include <cctype>
 #include <iostream>
@@ -21,9 +22,7 @@ public:
 
     bool contunueGame(bool Continue); //returns a continue game feature
 
-    std::string ArrayToLowerCase(std::string array[]);
-
-    char * stringToChar(std::string String);
+    std::string stringChangeCase(std::string String, int Case); //turns strings into all lowercase for comparisons
 
 private:
     enum CONTINUE_STATE
@@ -31,10 +30,18 @@ private:
         YES = true,
         NO = false
     };
+    enum String_Case
+    {
+        UPPER = 1,
+        LOWER = 2
+    };
 
+    std::vector<std::string> correctLetters;
     std::vector<std::string> incorrectGuesses;
     std::vector<std::string> incorrectLetters;
 };
+
+
 
 
 #endif //TURDLECPP_GAME_H

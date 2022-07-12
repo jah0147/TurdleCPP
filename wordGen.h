@@ -19,7 +19,6 @@ public:
     std::string arrayToString(std::string* array, int size);
 
 private:
-    //std::vector<std::string> wordsArray[NULL];
     std::string filename = "textFiles/wordBank/wordle.txt";
     enum DIFFICULTY_STATE
     {
