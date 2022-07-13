@@ -17,7 +17,7 @@ void game::guessWord(        int tries,
     std::string givenLetters_UPPER = stringChangeCase(givenLetters, 1); //may not work as intended
     bool done = false;
 
-    while ((tries > 0) || (!done)) //If we run out of tries, game-over
+    while ((tries > 0) & (!done)) //If we run out of tries, game-over
     {
         std::string userGuess;
         std::cout << "Guess: ";
@@ -46,23 +46,54 @@ void game::guessWord(        int tries,
             std::string tempString; //temporary string for this case
             for (int i = 0; i < randWord.length(); i++)
             {
-
-                if (randWord_UPPER.find(userGuess_UPPER[i]))
+                if (randWord_UPPER.find(userGuess_UPPER[i]) != std::string::npos)  //If correctl letters exist in guess
                 {
                     tempString = userGuess_UPPER[i];
                     if (randWord_UPPER[i] == userGuess_UPPER[i]) //if user guesses letter in correct place
                     {
                         givenLetters_UPPER[i] = userGuess_UPPER[i];
-                    }
-                    else if (std::find(correctLetters.begin(), correctLetters.end(), tempString) != correctLetters.end()) //if letter is not already in vector
+                    } else
                     {
-                        correctLetters.push_back(tempString);
+                        if (std::find(correctLetters.begin(), correctLetters.end(), tempString) !=
+                            correctLetters.end()) //if letter is not already in vector{
+                        {
+                            //If letters exist in vector, do not add again
+                        } else {
+                            correctLetters.push_back(tempString);
+                        }
 
                     }
+
+                } else {
+                    if (std::find(incorrectLetters.begin(), incorrectLetters.end(), tempString) !=
+                        incorrectLetters.end())
+                    {
+                        //if incorrect guesses already exist in vector, do not add
+                    } else {
+                        incorrectLetters.push_back(tempString);
+                    }
                 }
-                i++;
             }
+            if (std::find(incorrectGuesses.begin(), incorrectGuesses.end(), userGuess_UPPER) !=
+                incorrectLetters.end())
+            {
+                // do nothing
+            } else
+            {
+                incorrectGuesses.push_back(userGuess_UPPER); //adds entire word user guessed to words
+            }
+
+            //Prints correct letters guessed
+            std::cout << "Correct letters guessed in wrong location: [";
+            for (std::string s: correctLetters)
+            {
+                std::cout << s << ' ';
+            }
+            std::cout << "]" << std::endl;
+
+            std::cout << givenLetters_UPPER << std::endl;
         }
+
 
         tries--; //testing
     }
