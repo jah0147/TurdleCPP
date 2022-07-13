@@ -7,12 +7,12 @@
 #include "console.h"
 #include "delay.h"
 
-void game::guessWord(        int tries,
+bool game::guessWord(        int tries,
                      std::string randWord,
                      std::string givenLetters,
                      std::string wordsArray[])
 {
-
+    continueGame = false;
     delay delay;
     std::string randWord_UPPER = stringChangeCase(randWord, UPPER);
     //std::string randWord_LOWER = stringChangeCase(randWord, LOWER); //not used
@@ -93,18 +93,19 @@ void game::guessWord(        int tries,
         userInContinue = stringChangeCase(userInContinue, UPPER_CASE);
         if (userInContinue == "Y" || userInContinue == "YES")
         {
-            contunueGame(true);
+            continueGame = true;
         } else {
-            contunueGame(false);
+            continueGame = false;
         }
     } else {
         std::cout << std::endl;
         std::cout << "You have ran out of tries..." << std::endl;
         std::cout << "The word was " << randWord_UPPER << std::endl;
         std::cout << "\n         Game Over";
-        contunueGame(false);
+        continueGame = false;
         delay.DELAY_IN_SECONDS(3);
     }
+    return continueGame; //used in main function
 }
 
 /*

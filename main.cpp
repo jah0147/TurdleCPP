@@ -31,7 +31,11 @@ void test()
 
     //testing game class
     game game;
-    game.guessWord(triesAm, randWord,randLetters, wordsArray);
+    bool continueGame = game.guessWord(triesAm, randWord,randLetters, wordsArray);
+    if (continueGame)
+    {
+        test();
+    }
 }
 
 int main() {

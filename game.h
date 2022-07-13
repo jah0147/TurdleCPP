@@ -17,7 +17,7 @@
 
 class game{
 public:
-    void guessWord(int tries,
+    bool guessWord(int tries,
                    std::string randWord,
                    std::string givenLetters,
                    std::string wordsArray[]);
@@ -28,16 +28,6 @@ public:
 
     void printVectorValues(std::vector<std::string> v);
 
-    inline bool contunueGame(bool Continue) //returns a continue game feature
-    {
-        if (Continue)
-        {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
     std::string stringChangeCase(std::string String, int Case); //turns strings into all lowercase for comparisons
 
 private:
@@ -55,6 +45,7 @@ private:
     std::vector<std::string> correctLetters;
     std::vector<std::string> incorrectGuesses;
     std::vector<std::string> incorrectLetters;
+    bool continueGame;
 };
 
 
