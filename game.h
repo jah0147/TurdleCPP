@@ -11,6 +11,9 @@
 #include <cctype>
 #include <iostream>
 
+#define UPPER_CASE 1
+#define LOWER_CASE 2
+
 class game{
 public:
     void guessWord(int tries,
@@ -18,7 +21,11 @@ public:
                    std::string givenLetters,
                    std::string wordsArray[]);
 
-    bool compairGuess(std::string userGuess, std::string randWord);
+    void compairGuess(std::string userGuess_UPPER,
+                      std::string randWord_UPPER,
+                      std::string givenLetters_UPPER);
+
+    void printVectorValues(std::vector<std::string> v);
 
     bool contunueGame(bool Continue); //returns a continue game feature
 

@@ -12,9 +12,9 @@ void game::guessWord(        int tries,
                      std::string wordsArray[])
 {
 
-    std::string randWord_UPPER = stringChangeCase(randWord, 1);
-    std::string randWord_LOWER = stringChangeCase(randWord, 2);
-    std::string givenLetters_UPPER = stringChangeCase(givenLetters, 1); //may not work as intended
+    std::string randWord_UPPER = stringChangeCase(randWord, UPPER);
+    //std::string randWord_LOWER = stringChangeCase(randWord, LOWER); //not used
+    std::string givenLetters_UPPER = stringChangeCase(givenLetters, UPPER); //may not work as intended
     bool done = false;
 
     while ((tries > 0) & (!done)) //If we run out of tries, game-over
@@ -43,55 +43,37 @@ void game::guessWord(        int tries,
         }
         else
         {
-            std::string tempString; //temporary string for this case
-            for (int i = 0; i < randWord.length(); i++)
-            {
-                if (randWord_UPPER.find(userGuess_UPPER[i]) != std::string::npos)  //If correctl letters exist in guess
-                {
-                    tempString = userGuess_UPPER[i];
-                    if (randWord_UPPER[i] == userGuess_UPPER[i]) //if user guesses letter in correct place
-                    {
-                        givenLetters_UPPER[i] = userGuess_UPPER[i];
-                    } else
-                    {
-                        if (std::find(correctLetters.begin(), correctLetters.end(), tempString) !=
-                            correctLetters.end()) //if letter is not already in vector{
-                        {
-                            //If letters exist in vector, do not add again
-                        } else {
-                            correctLetters.push_back(tempString);
-                        }
+            compairGuess(userGuess_UPPER,
+                         randWord_UPPER,
+                         givenLetters_UPPER);
 
-                    }
+            std::cout << "----------------------------------------------------" << std::endl;
+            //Prints correct letters guessed
+            std::cout << "Incorrect words guessed: [";
+            printVectorValues(incorrectGuesses);
+            std::cout << "]" << std::endl;
+            std::cout << "----------------------------------------------------" << std::endl;
 
-                } else {
-                    if (std::find(incorrectLetters.begin(), incorrectLetters.end(), tempString) !=
-                        incorrectLetters.end())
-                    {
-                        //if incorrect guesses already exist in vector, do not add
-                    } else {
-                        incorrectLetters.push_back(tempString);
-                    }
-                }
-            }
-            if (std::find(incorrectGuesses.begin(), incorrectGuesses.end(), userGuess_UPPER) !=
-                incorrectLetters.end())
+            std::cout << std::endl;
+            for (int i = 0; i < givenLetters_UPPER.size(); i++)
             {
-                // do nothing
-            } else
-            {
-                incorrectGuesses.push_back(userGuess_UPPER); //adds entire word user guessed to words
+                std::cout << givenLetters_UPPER[i]  << " ";
             }
+            std::cout << std::endl;
+            std::cout << std::endl;
+            std::cout << "----------------------------------------------------" << std::endl;
 
             //Prints correct letters guessed
             std::cout << "Correct letters guessed in wrong location: [";
-            for (std::string s: correctLetters)
-            {
-                std::cout << s << ' ';
-            }
+            printVectorValues(correctLetters);
             std::cout << "]" << std::endl;
 
-            std::cout << givenLetters_UPPER << std::endl;
+            std::cout << "Incorrect letters guessed: [";
+            printVectorValues(incorrectLetters);
+            std::cout << "]" << std::endl;
+
+            std::cout << "----------------------------------------------------" << std::endl;
+            std::cout << std::endl;
         }
 
 
@@ -99,6 +81,71 @@ void game::guessWord(        int tries,
     }
 }
 
+/*
+ * Function: compairGuess
+ * Description: Takes users guess and correctly
+ *  distributes letters and words to correct vector storage.
+ */
+void game::compairGuess(std::string userGuess_UPPER,
+                        std::string randWord_UPPER,
+                        std::string givenLetters_UPPER)
+{
+    std::string tempString; //temporary string for this case
+    for (int i = 0; i < randWord_UPPER.length(); i++)
+    {
+        if (randWord_UPPER.find(userGuess_UPPER[i]) != std::string::npos)  //If correctl letters exist in guess
+        {
+            tempString = userGuess_UPPER[i];
+            if (randWord_UPPER[i] == userGuess_UPPER[i]) //if user guesses letter in correct place
+            {
+                givenLetters_UPPER[i] = userGuess_UPPER[i];
+            } else
+            {
+                if (std::find(correctLetters.begin(), correctLetters.end(), tempString) !=
+                    correctLetters.end()) //if letter is not already in vector{
+                {
+                    //If letters exist in vector, do not add again
+                } else {
+                    correctLetters.push_back(tempString);
+                }
+
+            }
+
+        } else {
+            if (std::find(incorrectLetters.begin(), incorrectLetters.end(), tempString) !=
+                incorrectLetters.end())
+            {
+                //if incorrect guesses already exist in vector, do not add
+            } else {
+                incorrectLetters.push_back(tempString);
+            }
+        }
+    }
+    if (std::find(incorrectGuesses.begin(), incorrectGuesses.end(), userGuess_UPPER) !=
+        incorrectLetters.end())
+    {
+        // do nothing
+    } else
+    {
+        incorrectGuesses.push_back(userGuess_UPPER); //adds entire word user guessed to words
+    }
+}
+
+/*
+ * Function: printVectorValues
+ * Description: Takes in vector and prints entire value of vector
+ */
+void game::printVectorValues(std::vector<std::string> v)
+{
+    for (std::string s: v)
+    {
+        std::cout << s << ' , ';
+    }
+}
+/*
+ * Function: stringChangeCase
+ * Description: Takes string and changes the case
+ */
 std::string game::stringChangeCase(std::string String, int Case)
 {
     switch (Case)
