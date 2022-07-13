@@ -43,7 +43,7 @@ void game::guessWord(        int tries,
         }
         else
         {
-            compairGuess(userGuess_UPPER,
+            givenLetters_UPPER = compairGuess(userGuess_UPPER,
                          randWord_UPPER,
                          givenLetters_UPPER);
 
@@ -86,16 +86,16 @@ void game::guessWord(        int tries,
  * Description: Takes users guess and correctly
  *  distributes letters and words to correct vector storage.
  */
-void game::compairGuess(std::string userGuess_UPPER,
+std::string game::compairGuess(std::string userGuess_UPPER,
                         std::string randWord_UPPER,
                         std::string givenLetters_UPPER)
 {
     std::string tempString; //temporary string for this case
     for (int i = 0; i < randWord_UPPER.length(); i++)
     {
+        tempString = userGuess_UPPER[i];
         if (randWord_UPPER.find(userGuess_UPPER[i]) != std::string::npos)  //If correctl letters exist in guess
         {
-            tempString = userGuess_UPPER[i];
             if (randWord_UPPER[i] == userGuess_UPPER[i]) //if user guesses letter in correct place
             {
                 givenLetters_UPPER[i] = userGuess_UPPER[i];
@@ -122,24 +122,25 @@ void game::compairGuess(std::string userGuess_UPPER,
         }
     }
     if (std::find(incorrectGuesses.begin(), incorrectGuesses.end(), userGuess_UPPER) !=
-        incorrectLetters.end())
+        incorrectGuesses.end())
     {
         // do nothing
     } else
     {
         incorrectGuesses.push_back(userGuess_UPPER); //adds entire word user guessed to words
     }
+    return givenLetters_UPPER;
 }
 
 /*
  * Function: printVectorValues
  * Description: Takes in vector and prints entire value of vector
  */
-void game::printVectorValues(std::vector<std::string> v)
+void game::printVectorValues(const std::vector<std::string>& v)
 {
-    for (std::string s: v)
+    for (const std::string& x: v)
     {
-        std::cout << s << ' , ';
+        std::cout << x << ',' << ' ';
     }
 }
 /*

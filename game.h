@@ -21,11 +21,11 @@ public:
                    std::string givenLetters,
                    std::string wordsArray[]);
 
-    void compairGuess(std::string userGuess_UPPER,
+    std::string compairGuess(std::string userGuess_UPPER,
                       std::string randWord_UPPER,
                       std::string givenLetters_UPPER);
 
-    void printVectorValues(std::vector<std::string> v);
+    void printVectorValues(const std::vector<std::string>& v);
 
     bool contunueGame(bool Continue); //returns a continue game feature
 
