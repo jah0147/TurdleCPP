@@ -28,8 +28,16 @@ public:
 
     void printVectorValues(std::vector<std::string> v);
 
-    bool contunueGame(bool Continue); //returns a continue game feature
-
+    inline bool contunueGame(bool Continue) //returns a continue game feature
+    {
+        if (Continue)
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
     std::string stringChangeCase(std::string String, int Case); //turns strings into all lowercase for comparisons
 
 private:

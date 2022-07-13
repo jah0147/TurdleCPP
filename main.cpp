@@ -29,7 +29,6 @@ void test()
     std::cout <<"The random letters chosen are: " << randLetters << std::endl;
 
 
-
     //testing game class
     game game;
     game.guessWord(triesAm, randWord,randLetters, wordsArray);

@@ -134,7 +134,8 @@ void console::gameMode(std::string freeLetter, int *difficulty, int *triesAm)
  */
 void console::clearConsole()
 {
-//    system("CLS");
-//    std::cout << std::flush;
+    //system("CLS");
+    //std::cout << std::flush;
+    //std::cout << "";
 std::cout << "\\x1B[2J\\x1B[H";
 }

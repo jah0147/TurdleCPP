@@ -2,9 +2,10 @@
 // Created by jacob_howard on 7/7/2022.
 //
 
-#include <cstring>
 #include "game.h"
 #include "keepScore.h"
+#include "console.h"
+#include "delay.h"
 
 void game::guessWord(        int tries,
                      std::string randWord,
@@ -12,6 +13,7 @@ void game::guessWord(        int tries,
                      std::string wordsArray[])
 {
 
+    delay delay;
     std::string randWord_UPPER = stringChangeCase(randWord, UPPER);
     //std::string randWord_LOWER = stringChangeCase(randWord, LOWER); //not used
     std::string givenLetters_UPPER = stringChangeCase(givenLetters, UPPER); //may not work as intended
@@ -40,6 +42,7 @@ void game::guessWord(        int tries,
             int GAME_SCORE = score(tries); //stores score for entire game
             std::cout << "Your score is: " << GAME_SCORE << " points!" << std::endl;
             done = true;
+            delay.DELAY_IN_SECONDS(2);
         }
         else
         {
@@ -84,9 +87,23 @@ void game::guessWord(        int tries,
 
     if (done)
     {
-        //continue?
+        std::cout << "Would you like to continue? (Y/N): ";
+        std::string userInContinue;
+        std::cin >> userInContinue;
+        userInContinue = stringChangeCase(userInContinue, UPPER_CASE);
+        if (userInContinue == "Y" || userInContinue == "YES")
+        {
+            contunueGame(true);
+        } else {
+            contunueGame(false);
+        }
     } else {
-        //ran out of tries. game over
+        std::cout << std::endl;
+        std::cout << "You have ran out of tries..." << std::endl;
+        std::cout << "The word was " << randWord_UPPER << std::endl;
+        std::cout << "\n         Game Over";
+        contunueGame(false);
+        delay.DELAY_IN_SECONDS(3);
     }
 }
 
