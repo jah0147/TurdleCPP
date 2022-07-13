@@ -47,22 +47,23 @@ void game::guessWord(        int tries,
                          randWord_UPPER,
                          givenLetters_UPPER);
 
-            std::cout << "----------------------------------------------------" << std::endl;
+
+            std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
             //Prints correct letters guessed
             std::cout << "Incorrect words guessed: [";
             printVectorValues(incorrectGuesses);
             std::cout << "]" << std::endl;
-            std::cout << "----------------------------------------------------" << std::endl;
+            std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
 
             std::cout << std::endl;
+            std::cout <<"                                               ";
             for (int i = 0; i < givenLetters_UPPER.size(); i++)
             {
                 std::cout << givenLetters_UPPER[i]  << " ";
             }
             std::cout << std::endl;
             std::cout << std::endl;
-            std::cout << "----------------------------------------------------" << std::endl;
-
+            std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
             //Prints correct letters guessed
             std::cout << "Correct letters guessed in wrong location: [";
             printVectorValues(correctLetters);
@@ -72,12 +73,20 @@ void game::guessWord(        int tries,
             printVectorValues(incorrectLetters);
             std::cout << "]" << std::endl;
 
-            std::cout << "----------------------------------------------------" << std::endl;
+            std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
+            std::cout << "                                           Tries left: " << tries << std::endl;
+            std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
             std::cout << std::endl;
         }
 
-
         tries--; //testing
+    }
+
+    if (done)
+    {
+        //continue?
+    } else {
+        //ran out of tries. game over
     }
 }
 
