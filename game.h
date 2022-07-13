@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <cctype>
 #include <iostream>
+//#include <bits/stdc++.h>
 
 #define UPPER_CASE 1
 #define LOWER_CASE 2
@@ -25,7 +26,7 @@ public:
                       std::string randWord_UPPER,
                       std::string givenLetters_UPPER);
 
-    void printVectorValues(const std::vector<std::string>& v);
+    void printVectorValues(std::vector<std::string> v);
 
     bool contunueGame(bool Continue); //returns a continue game feature
 

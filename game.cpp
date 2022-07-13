@@ -145,8 +145,10 @@ std::string game::compairGuess(std::string userGuess_UPPER,
  * Function: printVectorValues
  * Description: Takes in vector and prints entire value of vector
  */
-void game::printVectorValues(const std::vector<std::string>& v)
+void game::printVectorValues(std::vector<std::string> v)
 {
+    std::sort(v.begin(), v.end()); // alphabetically sorts
+
     for (const std::string& x: v)
     {
         std::cout << x << ',' << ' ';
