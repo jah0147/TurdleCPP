@@ -54,7 +54,7 @@ bool console::checkIfNum(std::string str)
  * Function: gameMode
  * Purpose: Lets user select game difficulty
  */
-void console::gameMode(std::string freeLetter, int *difficulty, int *triesAm)
+void console::gameMode(int *difficulty, int *triesAm)
 {
     /*
     int one = 1;
@@ -97,22 +97,19 @@ void console::gameMode(std::string freeLetter, int *difficulty, int *triesAm)
         case EASY:
             *triesAm = 10;
             std::cout << "-----------------EASY MODE-----------------" << std::endl;
-            std::cout << "You will be given a random letter in the word and" << triesAm << "tries" << std::endl;
-            std::cout << "\n Your free letters are\n"<< freeLetter << std::endl;
+            std::cout << "You will be given random letters in the word and " << *triesAm << " tries" << std::endl;
             break;
 
         case MEDIUM:
             *triesAm = 8;
             std::cout << "-----------------MEDIUM MODE-----------------" << std::endl;
-            std::cout << "You will be given a random letter in the word and" << triesAm << "tries" << std::endl;
-            std::cout << "\n Your free letters are\n"<< freeLetter << std::endl;
+            std::cout << "You will be given a random letter in the word and " << *triesAm << " tries" << std::endl;
             break;
 
         case HARD:
             *triesAm = 5;
             std::cout << "-----------------Hard MODE-----------------" << std::endl;
-            std::cout << "You will be given a random letter in the word and" << triesAm << "tries" << std::endl;
-            std::cout << "\n Your free letters are\n"<< freeLetter << std::endl;
+            std::cout << "You will be given no random letters in the word and " << *triesAm << " tries" << std::endl;
             break;
 
         default:
@@ -120,7 +117,6 @@ void console::gameMode(std::string freeLetter, int *difficulty, int *triesAm)
             *difficulty = EASY;
             std::cout << "That is an invalid Difficulty..." << std::endl;
             std::cout << "The difficulty will be set to EASY by default." << std::endl;
-            std::cout << "\nYour free letters are\n"<< freeLetter << std::endl;
     }
 
     //return difficulty , triesAm
