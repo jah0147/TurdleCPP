@@ -15,6 +15,7 @@
 #define UPPER_CASE 1
 #define LOWER_CASE 2
 
+
 class game{
 public:
     bool guessWord(int tries,
@@ -30,6 +31,8 @@ public:
 
     std::string stringChangeCase(std::string String, int Case); //turns strings into all lowercase for comparisons
 
+    std::string userInputCase(int &tries, std::string randWord, bool &quit);
+
 private:
     enum CONTINUE_STATE
     {
@@ -42,10 +45,22 @@ private:
         LOWER = 2
     };
 
+    enum COMMAND_STATE
+    {
+        isCOMMAND = 1, //checks if trying to use a commmand
+        QUIT,
+        CHEAT, //cheat command
+        DEBUG, //debug command
+        WORDLIST, //change wordlist command (this should restart the game with the new wordlist)
+        NOTCOMMAND
+    };
+
     std::vector<std::string> correctLetters;
     std::vector<std::string> incorrectGuesses;
     std::vector<std::string> incorrectLetters;
     bool continueGame;
+    bool done = false;
+    bool quit = false;
 };
 
 

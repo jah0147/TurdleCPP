@@ -12,101 +12,171 @@ bool game::guessWord(        int tries,
                      std::string givenLetters,
                      std::string wordsArray[])
 {
-    continueGame = false;
     delay delay;
     std::string randWord_UPPER = stringChangeCase(randWord, UPPER);
     //std::string randWord_LOWER = stringChangeCase(randWord, LOWER); //not used
     std::string givenLetters_UPPER = stringChangeCase(givenLetters, UPPER); //may not work as intended
-    bool done = false;
+    //bool done = false;
 
-    while ((tries > 0) & (!done)) //If we run out of tries, game-over
+    while ((tries > 0) & (!done) & (!quit)) //If we run out of tries, game-over
     {
         std::string userGuess;
-        std::cout << "Guess: ";
-        std::cin >> userGuess;
+//        std::cout << "Guess: ";
+//        std::cin >> userGuess;
 
-        while (userGuess.length() != randWord.length())
-        {
-            std::cout << "Please type no more or less than "
-                      << randWord.length() << " letters!" << std::endl;
-            std::cout << "Please try again..." << std::endl;
-            std::cout << "Input: ";
-            std::cin >> userGuess;
-        }
-        std::string userGuess_UPPER = stringChangeCase(userGuess, 1);
+        userGuess = userInputCase(tries, randWord_UPPER, quit); //Checks if user inputs a command or just a word
 
-        //User guessed Correct Word
-        if (userGuess_UPPER == randWord_UPPER)
-        {
-            std::string continueUsrInput;
-            std::cout << "That was correct! The word was " << randWord_UPPER << std::endl;
-            int GAME_SCORE = score(tries); //stores score for entire game
-            std::cout << "Your score is: " << GAME_SCORE << " points!" << std::endl;
-            done = true;
-            delay.DELAY_IN_SECONDS(2);
-        }
-        else
-        {
-            givenLetters_UPPER = compairGuess(userGuess_UPPER,
-                         randWord_UPPER,
-                         givenLetters_UPPER);
-
-
-            std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
-            //Prints correct letters guessed
-            std::cout << "Incorrect words guessed: [";
-            printVectorValues(incorrectGuesses);
-            std::cout << "]" << std::endl;
-            std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
-
-            std::cout << std::endl;
-            std::cout <<"                                               ";
-            for (int i = 0; i < givenLetters_UPPER.size(); i++)
+            while ((userGuess[0]== '/') & (!quit)) //if user input command. ask for guess again
             {
-                std::cout << givenLetters_UPPER[i]  << " ";
+                userGuess = userInputCase(tries, randWord_UPPER, quit); //Checks if user inputs a command or just a word
             }
-            std::cout << std::endl;
-            std::cout << std::endl;
-            std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
-            //Prints correct letters guessed
-            std::cout << "Correct letters guessed in wrong location: [";
-            printVectorValues(correctLetters);
-            std::cout << "]" << std::endl;
+        if (!quit) {
+            while (userGuess.length() != randWord.length()) {
+                std::cout << "Please type no more or less than "
+                          << randWord.length() << " letters!" << std::endl;
+                std::cout << "Please try again..." << std::endl;
+                std::cout << "Input: ";
+                std::cin >> userGuess;
+            }
+            std::string userGuess_UPPER = stringChangeCase(userGuess, UPPER_CASE);
 
-            std::cout << "Incorrect letters guessed: [";
-            printVectorValues(incorrectLetters);
-            std::cout << "]" << std::endl;
+            //User guessed Correct Word
+            if (userGuess_UPPER == randWord_UPPER) {
+                std::string continueUsrInput;
+                std::cout << "That was correct! The word was " << randWord_UPPER << std::endl;
+                int GAME_SCORE = score(tries); //stores score for entire game
+                std::cout << "Your score is: " << GAME_SCORE << " points!" << std::endl;
+                done = true;
+                delay.DELAY_IN_SECONDS(2);
+            } else {
+                givenLetters_UPPER = compairGuess(userGuess_UPPER,
+                                                  randWord_UPPER,
+                                                  givenLetters_UPPER);
 
-            std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
-            std::cout << "                                           Tries left: " << tries - 1 << std::endl;
-            std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
-            std::cout << std::endl;
+
+                std::cout
+                        << "--------------------------------------------------------------------------------------------"
+                        << std::endl;
+                //Prints correct letters guessed
+                std::cout << "Incorrect words guessed: [";
+                printVectorValues(incorrectGuesses);
+                std::cout << "]" << std::endl;
+                std::cout
+                        << "--------------------------------------------------------------------------------------------"
+                        << std::endl;
+
+                std::cout << std::endl;
+                std::cout << "                                            ";
+                for (int i = 0; i < givenLetters_UPPER.size(); i++) {
+                    std::cout << givenLetters_UPPER[i] << " ";
+                }
+                std::cout << std::endl;
+                std::cout << std::endl;
+                std::cout
+                        << "--------------------------------------------------------------------------------------------"
+                        << std::endl;
+                //Prints correct letters guessed
+                std::cout << "Correct letters guessed in wrong location: [";
+                printVectorValues(correctLetters);
+                std::cout << "]" << std::endl;
+
+                std::cout << "Incorrect letters guessed: [";
+                printVectorValues(incorrectLetters);
+                std::cout << "]" << std::endl;
+
+                std::cout
+                        << "--------------------------------------------------------------------------------------------"
+                        << std::endl;
+                std::cout << "                                        Tries left: " << tries - 1 << std::endl;
+                std::cout
+                        << "--------------------------------------------------------------------------------------------"
+                        << std::endl;
+                std::cout << std::endl;
+            }
+
+            tries--; //testing
         }
-
-        tries--; //testing
     }
 
-    if (done)
-    {
-        std::cout << "Would you like to continue? (Y/N): ";
-        std::string userInContinue;
-        std::cin >> userInContinue;
-        userInContinue = stringChangeCase(userInContinue, UPPER_CASE);
-        if (userInContinue == "Y" || userInContinue == "YES")
-        {
-            continueGame = true;
+    if (!quit) {
+        if (done) {
+            std::cout << "Would you like to continue? (Y/N): ";
+            std::string userInContinue;
+            std::cin >> userInContinue;
+            userInContinue = stringChangeCase(userInContinue, UPPER_CASE);
+            if (userInContinue == "Y" || userInContinue == "YES") {
+                continueGame = true;
+            } else {
+                continueGame = false;
+            }
         } else {
+            std::cout << std::endl;
+            std::cout << "You have ran out of tries..." << std::endl;
+            std::cout << "The word was " << randWord_UPPER << std::endl;
+            std::cout << "\n         Game Over";
             continueGame = false;
+            delay.DELAY_IN_SECONDS(3);
         }
-    } else {
-        std::cout << std::endl;
-        std::cout << "You have ran out of tries..." << std::endl;
-        std::cout << "The word was " << randWord_UPPER << std::endl;
-        std::cout << "\n         Game Over";
-        continueGame = false;
-        delay.DELAY_IN_SECONDS(3);
     }
     return continueGame; //used in main function
+}
+
+std::string game::userInputCase(int &tries, std::string randWord, bool &quit)
+{
+    std::string wordlist;
+    std::cout << "\nPlease enter your guess.\n" << std::endl;
+    std::string usrInput;
+    std::cout << "Input: ";
+    std::cin >> usrInput;
+    usrInput = stringChangeCase(usrInput, LOWER_CASE); //changing input to lower case (might give errors with commands
+    int checkIfCommand;
+    int usrCommand;
+
+    if (usrInput[0] == '/')
+    {
+        checkIfCommand = isCOMMAND;
+        if (usrInput == "/quit") {usrCommand = QUIT;}
+        else if (usrInput == "/cheat") {usrCommand = CHEAT;}
+        else if (usrInput == "/debug") {usrCommand = DEBUG;}
+        else if (usrInput == "/wordlist") {usrCommand = WORDLIST;}
+        else {usrCommand = NOTCOMMAND;} //if user inputs a non-existent command
+    }
+
+
+    switch (checkIfCommand)
+    {
+        case isCOMMAND: //isCommand
+            switch (usrCommand) {
+                case QUIT: //user chose to quit game
+                    delay delay;
+                    std::cout << "You chose to quit the game..." << std::endl;
+                    std::cout << "The word was " << randWord << std::endl;
+                    delay.DELAY_IN_SECONDS(3); //delay before quit so user can see word before game end
+                    quit = true;
+                    break;
+                case CHEAT:
+                    std::cout << "You have chosen to cheat" << std::endl;
+                    std::cout << "Enter how many tries you would like: ";
+                    //not implemented yet
+                    break;
+                case DEBUG:
+                    std::cout << "DEBUG MODE" << std::endl;
+                    std::cout << "The random word is: " << randWord << std::endl;
+                    break;
+                case WORDLIST: //Changing the wordlist should somehow restart the game with new wordlist
+                    std::cout << "What would you like to change the wordlist to?" << std::endl;
+                    std::cout << "Input: ";
+                    std::cin >> wordlist;
+                    break;
+                case NOTCOMMAND:
+                    std::cout << "That is not a valid command..." << std::endl;
+                    break;
+            }
+
+        default:
+            return usrInput; //only return user input if they do not input a command
+    }
+
 }
 
 /*
@@ -173,6 +243,7 @@ void game::printVectorValues(std::vector<std::string> v)
         std::cout << x << ',' << ' ';
     }
 }
+
 /*
  * Function: stringChangeCase
  * Description: Takes string and changes the case
