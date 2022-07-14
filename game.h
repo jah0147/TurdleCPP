@@ -21,7 +21,8 @@ public:
     bool guessWord(int tries,
                    std::string randWord,
                    std::string givenLetters,
-                   std::string wordsArray[]);
+                   std::string wordsArray[],
+                   int difficulty);
 
     std::string compairGuess(std::string userGuess_UPPER,
                       std::string randWord_UPPER,

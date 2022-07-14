@@ -6,23 +6,30 @@
 #include "keepScore.h"
 #include "console.h"
 #include "delay.h"
+#include "wordGen.h"
 
-bool game::guessWord(        int tries,
+bool game::guessWord(int tries,
                      std::string randWord,
                      std::string givenLetters,
-                     std::string wordsArray[])
+                     std::string wordsArray[],
+                     int difficulty)
 {
     delay delay;
-    std::string randWord_UPPER = stringChangeCase(randWord, UPPER);
-    //std::string randWord_LOWER = stringChangeCase(randWord, LOWER); //not used
-    std::string givenLetters_UPPER = stringChangeCase(givenLetters, UPPER); //may not work as intended
-    //bool done = false;
+    wordGen wordGen;
 
+    int arrayLength = wordGen.lineNum();
+    std::string wordsArray_UPPER[arrayLength];
+    std::string randWord_UPPER = stringChangeCase(randWord, UPPER);
+    std::string givenLetters_UPPER = stringChangeCase(givenLetters, UPPER); //may not work as intended
+    //capitalizing words array
+    for (int i = 0; i < arrayLength; i++) {
+        wordsArray_UPPER[i] = stringChangeCase(wordsArray[i], UPPER);
+    }
+
+    //starting game
     while ((tries > 0) & (!done) & (!quit)) //If we run out of tries, game-over
     {
         std::string userGuess;
-//        std::cout << "Guess: ";
-//        std::cin >> userGuess;
 
         userGuess = userInputCase(tries, randWord_UPPER, quit); //Checks if user inputs a command or just a word
 
@@ -35,10 +42,24 @@ bool game::guessWord(        int tries,
                 std::cout << "Please type no more or less than "
                           << randWord.length() << " letters!" << std::endl;
                 std::cout << "Please try again..." << std::endl;
-                std::cout << "Input: ";
-                std::cin >> userGuess;
+                userGuess = userInputCase(tries, randWord_UPPER, quit);
             }
             std::string userGuess_UPPER = stringChangeCase(userGuess, UPPER_CASE);
+
+            if (difficulty != 1) //if the difficulty is not set to easy (this is a mess)
+            {
+                bool realWord = false;
+                while (!realWord)
+                {
+                    for (int i = 0; i < arrayLength; i++) {
+                        if ((randWord_UPPER[i].find(userGuess_UPPER) !=
+                             std::string::npos)) //checks to see if word exists in wordbank
+                        {
+                            realWord = true;
+                        }
+                    }
+                }
+            }
 
             //User guessed Correct Word
             if (userGuess_UPPER == randWord_UPPER) {

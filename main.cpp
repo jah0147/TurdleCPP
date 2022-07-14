@@ -7,37 +7,6 @@
 #include "wordGen.h"
 #include "game.h"
 
-void test()
-{
-    //Testing console class
-    console console;
-    std::string freeLetter;
-    int difficulty, triesAm;
-
-    console.gameMode(&difficulty, &triesAm);
-    std::cout << "\nthe difficulty chosen is: " << difficulty << std::endl;
-    std::cout << "The triesAmount is: " << triesAm << std::endl;
-
-    //testing wordGen class
-    wordGen wordGen;
-    int numOfLinesInList = wordGen.lineNum();
-    std::string wordsArray[numOfLinesInList];
-    std::string randWord = wordGen.selectWord(wordsArray, numOfLinesInList);
-    std::cout << "The ArrayList 5 is: " << wordsArray[5] << std::endl;
-    std::cout << "The random chosen word is: " << randWord << std::endl;
-    std::string randLetters = wordGen.givenLetters(randWord, difficulty);
-    std::cout <<"The random letters chosen are: " << randLetters << std::endl;
-
-
-    //testing game class
-    game game;
-    bool continueGame = game.guessWord(triesAm, randWord,randLetters, wordsArray);
-    if (continueGame)
-    {
-        test();
-    }
-}
-
 bool restartGame(bool continueGame,
                  int triesAm,
                  int difficulty,
@@ -47,7 +16,11 @@ bool restartGame(bool continueGame,
         std::string randWord = wordGen.selectWord(wordsArray, numOfLinesInList);
         std::string randLetters = wordGen.givenLetters(randWord, difficulty);
         game gameRestart;
-        continueGame = gameRestart.guessWord(triesAm, randWord,randLetters, wordsArray);
+        continueGame = gameRestart.guessWord(triesAm,
+                                             randWord,
+                                             randLetters,
+                                             wordsArray,
+                                             difficulty);
         return continueGame;
 }
 
@@ -73,7 +46,11 @@ std::string randWord = wordGen.selectWord(wordsArray, numOfLinesInList);
 std::string randLetters = wordGen.givenLetters(randWord, difficulty);
 
     game game;
-    bool continueGame = game.guessWord(triesAm, randWord,randLetters, wordsArray);
+    bool continueGame = game.guessWord(triesAm,
+                                       randWord,
+                                       randLetters,
+                                       wordsArray,
+                                       difficulty);
     while (continueGame)
     {
         continueGame = restartGame(continueGame,
