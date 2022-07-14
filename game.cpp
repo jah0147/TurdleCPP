@@ -30,6 +30,7 @@ bool game::guessWord(        int tries,
             std::cout << "Please type no more or less than "
                       << randWord.length() << " letters!" << std::endl;
             std::cout << "Please try again..." << std::endl;
+            std::cout << "Input: ";
             std::cin >> userGuess;
         }
         std::string userGuess_UPPER = stringChangeCase(userGuess, 1);
@@ -77,7 +78,7 @@ bool game::guessWord(        int tries,
             std::cout << "]" << std::endl;
 
             std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
-            std::cout << "                                           Tries left: " << tries << std::endl;
+            std::cout << "                                           Tries left: " << tries - 1 << std::endl;
             std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
             std::cout << std::endl;
         }

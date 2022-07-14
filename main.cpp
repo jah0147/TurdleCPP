@@ -61,7 +61,7 @@ wordGen wordGen;
 console.printArt();
 console.welcome();
 delay.DELAY_IN_SECONDS(3); //3 second delay
-//console.clearConsole(); //should clear console screen
+//console.clearConsole(); //should clear console screen //Clearing the console does not work correctly and needs a fix
 
 //choose difficulty
 console.gameMode(&difficulty, &triesAm);
@@ -71,10 +71,6 @@ int numOfLinesInList = wordGen.lineNum();
 std::string wordsArray[numOfLinesInList];
 std::string randWord = wordGen.selectWord(wordsArray, numOfLinesInList);
 std::string randLetters = wordGen.givenLetters(randWord, difficulty);
-
-//print free letters
-//std::cout << "\n Your free letters are\n"<< randLetters << std::endl;
-//starting game
 
     game game;
     bool continueGame = game.guessWord(triesAm, randWord,randLetters, wordsArray);
