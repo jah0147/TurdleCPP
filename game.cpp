@@ -148,6 +148,9 @@ bool game::guessWord(int tries,
             delay.DELAY_IN_SECONDS(3);
         }
     }
+    else {
+        continueGame = false;
+    }
     return continueGame; //used in main function
 }
 
