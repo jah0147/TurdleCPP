@@ -46,20 +46,21 @@ bool game::guessWord(int tries,
             }
             std::string userGuess_UPPER = stringChangeCase(userGuess, UPPER_CASE);
 
-            if (difficulty != 1) //if the difficulty is not set to easy (this is a mess)
-            {
-                bool realWord = false;
-                while (!realWord)
-                {
-                    for (int i = 0; i < arrayLength; i++) {
-                        if ((randWord_UPPER[i].find(userGuess_UPPER) !=
-                             std::string::npos)) //checks to see if word exists in wordbank
-                        {
-                            realWord = true;
-                        }
-                    }
-                }
-            }
+              //currently not working
+//            if (difficulty != 1) //if the difficulty is not set to easy (this is a mess)
+//            {
+//                bool realWord = false;
+//                while (!realWord)
+//                {
+//                    for (int i = 0; i < arrayLength; i++) {
+//                        if ((randWord_UPPER[i].find(userGuess_UPPER) !=
+//                             std::string::npos)) //checks to see if word exists in wordbank
+//                        {
+//                            realWord = true;
+//                        }
+//                    }
+//                }
+//            }
 
             //User guessed Correct Word
             if (userGuess_UPPER == randWord_UPPER) {
