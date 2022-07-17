@@ -6,6 +6,7 @@
 #include "delay.h"
 #include "wordGen.h"
 #include "game.h"
+#include "sound.h"
 
 bool restartGame(bool continueGame,
                  int triesAm,
@@ -29,6 +30,9 @@ int difficulty, triesAm;
 console console;
 delay delay;
 wordGen wordGen;
+//sound sound;
+//
+//sound.introSound();
 
 //console
 console.printArt();
@@ -49,7 +53,7 @@ std::string randLetters = wordGen.givenLetters(randWord, difficulty);
 
     game game;
     bool continueGame = true;
-    
+
     while (continueGame)
     {
         continueGame = false;

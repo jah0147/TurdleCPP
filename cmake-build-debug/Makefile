@@ -224,6 +224,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\TurdleCPP.dir\build.make CMakeFiles/TurdleCPP.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+sound.obj: sound.cpp.obj
+.PHONY : sound.obj
+
+# target to build an object file
+sound.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TurdleCPP.dir\build.make CMakeFiles/TurdleCPP.dir/sound.cpp.obj
+.PHONY : sound.cpp.obj
+
+sound.i: sound.cpp.i
+.PHONY : sound.i
+
+# target to preprocess a source file
+sound.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TurdleCPP.dir\build.make CMakeFiles/TurdleCPP.dir/sound.cpp.i
+.PHONY : sound.cpp.i
+
+sound.s: sound.cpp.s
+.PHONY : sound.s
+
+# target to generate assembly for a file
+sound.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TurdleCPP.dir\build.make CMakeFiles/TurdleCPP.dir/sound.cpp.s
+.PHONY : sound.cpp.s
+
 wordGen.obj: wordGen.cpp.obj
 .PHONY : wordGen.obj
 
@@ -269,6 +293,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... sound.obj
+	@echo ... sound.i
+	@echo ... sound.s
 	@echo ... wordGen.obj
 	@echo ... wordGen.i
 	@echo ... wordGen.s

@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/TurdleCPP.dir/game.cpp.obj.d"
   "CMakeFiles/TurdleCPP.dir/main.cpp.obj"
   "CMakeFiles/TurdleCPP.dir/main.cpp.obj.d"
+  "CMakeFiles/TurdleCPP.dir/sound.cpp.obj"
+  "CMakeFiles/TurdleCPP.dir/sound.cpp.obj.d"
   "CMakeFiles/TurdleCPP.dir/wordGen.cpp.obj"
   "CMakeFiles/TurdleCPP.dir/wordGen.cpp.obj.d"
   "TurdleCPP.exe"

@@ -106,6 +106,12 @@
 		<Unit filename="C:/Users/Jacob Howard/CLionProjects/TurdleCPP/main.cpp">
 			<Option target="TurdleCPP"/>
 		</Unit>
+		<Unit filename="C:/Users/Jacob Howard/CLionProjects/TurdleCPP/sound.cpp">
+			<Option target="TurdleCPP"/>
+		</Unit>
+		<Unit filename="C:/Users/Jacob Howard/CLionProjects/TurdleCPP/sound.h">
+			<Option target="TurdleCPP"/>
+		</Unit>
 		<Unit filename="C:/Users/Jacob Howard/CLionProjects/TurdleCPP/wordGen.cpp">
 			<Option target="TurdleCPP"/>
 		</Unit>
