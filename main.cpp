@@ -11,11 +11,12 @@
 bool restartGame(bool continueGame,
                  int triesAm,
                  int difficulty,
-                 std::string wordsArray[]){
+                 std::string wordsArray[],
+                 std::string randLetters){
         wordGen wordGen;
         int numOfLinesInList = wordGen.lineNum();
         std::string randWord = wordGen.selectWord(wordsArray, numOfLinesInList);
-        std::string randLetters = wordGen.givenLetters(randWord, difficulty);
+        //std::string randLetters = wordGen.givenLetters(randWord, difficulty);
         game gameRestart;
         continueGame = gameRestart.guessWord(triesAm,
                                              randWord,
@@ -60,7 +61,8 @@ std::string randLetters = wordGen.givenLetters(randWord, difficulty);
         continueGame = restartGame(continueGame,
                     triesAm,
                     difficulty,
-                    wordsArray);
+                    wordsArray,
+                    randLetters);
     }
 
     std::cout <<"\nThank you for playing Turdle!" << std::endl;
