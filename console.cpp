@@ -56,11 +56,6 @@ bool console::checkIfNum(std::string str)
  */
 void console::gameMode(int *difficulty, int *triesAm)
 {
-    /*
-    int one = 1;
-    int two = 2;
-    int three = 3;
-     */
     std::cout << "PLEASE SELECT YOUR DIFFICULTY" <<std::endl;
     std::cout << "-----------------------------" <<std::endl;
     std::cout << "EASY - TYPE 1" <<std::endl;
@@ -118,8 +113,6 @@ void console::gameMode(int *difficulty, int *triesAm)
             std::cout << "That is an invalid Difficulty..." << std::endl;
             std::cout << "The difficulty will be set to EASY by default." << std::endl;
     }
-
-    //return difficulty , triesAm
 }
 
 /*
@@ -130,8 +123,7 @@ void console::gameMode(int *difficulty, int *triesAm)
  */
 void console::clearConsole()
 {
-    //system("CLS");
+    system("CLS");
     //std::cout << std::flush;
     //std::cout << "";
-std::cout << "\\x1B[2J\\x1B[H";
 }

@@ -16,6 +16,7 @@ bool game::guessWord(int tries,
 {
     delay delay;
     wordGen wordGen;
+    console console; //init console
 
     int arrayLength = wordGen.lineNum();
     std::string wordsArray_UPPER[arrayLength];
@@ -39,6 +40,8 @@ bool game::guessWord(int tries,
             }
         if (!quit) {
             while (userGuess.length() != randWord.length()) {
+                console::clearConsole();
+
                 std::cout << "Please type no more or less than "
                           << randWord.length() << " letters!" << std::endl;
                 std::cout << "Please try again..." << std::endl;
@@ -46,7 +49,9 @@ bool game::guessWord(int tries,
             }
             std::string userGuess_UPPER = stringChangeCase(userGuess, UPPER_CASE);
 
-              //currently not working
+              // Checks if word exists in wordlist
+              //currently not working - needs fix
+              //
 //            if (difficulty != 1) //if the difficulty is not set to easy (this is a mess)
 //            {
 //                bool realWord = false;
@@ -64,6 +69,7 @@ bool game::guessWord(int tries,
 
             //User guessed Correct Word
             if (userGuess_UPPER == randWord_UPPER) {
+                console::clearConsole();
                 std::string continueUsrInput;
                 std::cout << "That was correct! The word was " << randWord_UPPER << std::endl;
                 int GAME_SCORE = score(tries); //stores score for entire game
@@ -71,6 +77,7 @@ bool game::guessWord(int tries,
                 done = true;
                 delay.DELAY_IN_SECONDS(2);
             } else {
+                console::clearConsole();
                 givenLetters_UPPER = compairGuess(userGuess_UPPER,
                                                   randWord_UPPER,
                                                   givenLetters_UPPER);
@@ -132,6 +139,7 @@ bool game::guessWord(int tries,
                 continueGame = false;
             }
         } else {
+            console::clearConsole();
             std::cout << std::endl;
             std::cout << "You have ran out of tries..." << std::endl;
             std::cout << "The word was " << randWord_UPPER << std::endl;

@@ -15,7 +15,7 @@ public:
     //console();
     void welcome();
     void printArt();
-    void clearConsole();
+    static void clearConsole();
     void gameMode(int *difficulty, int *triesAm); //pointers used to return difficulty and triesAmount later
     bool checkIfNum(std::string str);
 

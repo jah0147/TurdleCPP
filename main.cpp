@@ -33,11 +33,13 @@ wordGen wordGen;
 //console
 console.printArt();
 console.welcome();
-delay.DELAY_IN_SECONDS(3); //3 second delay
-//console.clearConsole(); //should clear console screen //Clearing the console does not work correctly and needs a fix
+delay.DELAY_IN_SECONDS(4); //3 second delay
+console::clearConsole(); //should clear console screen
 
 //choose difficulty
 console.gameMode(&difficulty, &triesAm);
+delay.DELAY_IN_SECONDS(3);
+console::clearConsole();
 
 //generate random word
 int numOfLinesInList = wordGen.lineNum();
@@ -46,13 +48,11 @@ std::string randWord = wordGen.selectWord(wordsArray, numOfLinesInList);
 std::string randLetters = wordGen.givenLetters(randWord, difficulty);
 
     game game;
-    bool continueGame = game.guessWord(triesAm,
-                                       randWord,
-                                       randLetters,
-                                       wordsArray,
-                                       difficulty);
+    bool continueGame = true;
+    
     while (continueGame)
     {
+        continueGame = false;
         continueGame = restartGame(continueGame,
                     triesAm,
                     difficulty,
@@ -60,6 +60,7 @@ std::string randLetters = wordGen.givenLetters(randWord, difficulty);
     }
 
     std::cout <<"\nThank you for playing Turdle!" << std::endl;
+    delay.DELAY_IN_SECONDS(1);
 return 0;
 }
 
