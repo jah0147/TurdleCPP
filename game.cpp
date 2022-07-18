@@ -197,8 +197,9 @@ std::string game::userInputCase(int &tries,
                     quit = true;
                     break;
                 case CHEAT:
-                    std::cout << "\n-------------------------CHEAT MENU-------------------------" << std::endl;
-                    std::cout << "Would you like an extra letter in the word or more tries?" << std::endl;
+                    std::cout << "\n--------------------------CHEAT MENU--------------------------" << std::endl;
+                    std::cout << "  Would you like an extra letter in the word or more tries?" << std::endl;
+                    std::cout << "--------------------------------------------------------------" << std::endl;
                     std::cout << "[1] Add Extra Letter" << std::endl;
                     std::cout << "[2] Add Attempts" << std::endl;
                     std::cout << "--------------------------------------------------------------" << std::endl;
@@ -211,24 +212,37 @@ std::string game::userInputCase(int &tries,
                         while (givenLetters_UPPER[i] != '_') {
                             i++;
                         }
+                        console::clearConsole();
                         givenLetters_UPPER[i] = randWord_UPPER[i];
-                        std::cout << givenLetters_UPPER << std::endl;
+                        std::cout << "Your given letters are: " << givenLetters_UPPER << std::endl;
                     }
                     else if (cheatMenuInput == "2") { //adds users tries
+                        console::clearConsole();
                         std::cout << "How many ties would you like to add?" << std::endl;
                         std::cout << "Input: ";
                         std::cin >> cheatMenuInputInt;
+
                         tries += cheatMenuInputInt;
+                        console::clearConsole();
+                        std::cout << "You now have " << tries <<" tries remaining" << std::endl;
+                        delay.DELAY_IN_SECONDS(2);
+                        console::clearConsole();
                     }
                     else { //If user inputs invalid input, we just exit the menu
                         std::cout << "Not a valid input..." << std::endl;
                         std::cout << "Exiting Cheat Menu" << std::endl;
+                        delay.DELAY_IN_SECONDS(1);
+                        console::clearConsole();
                     }
                     break;
                 case DEBUG:
-                    std::cout << "DEBUG MODE" << std::endl;
+                    std::cout << "\n--------------------------DEBUG MODE--------------------------" << std::endl;
                     std::cout << "The random word is: " << randWord_UPPER << std::endl;
+                    std::cout << "--------------------------------------------------------------" << std::endl;
+                    delay.DELAY_IN_SECONDS(2);
+                    console::clearConsole();
                     break;
+                    //wordlist not functioning yet
                 case WORDLIST: //Changing the wordlist should somehow restart the game with new wordlist
                     std::cout << "What would you like to change the wordlist to?" << std::endl;
                     std::cout << "Input: ";
@@ -242,7 +256,7 @@ std::string game::userInputCase(int &tries,
         default:
             return usrInput; //only return user input if they do not input a command
     }
-
+    return usrInput; //only return user input if they do not input a command
 }
 
 /*
