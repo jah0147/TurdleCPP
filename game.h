@@ -33,8 +33,6 @@ public:
     std::string stringChangeCase(std::string String, int Case); //turns strings into all lowercase for comparisons
 
     std::string userInputCase(int &tries,
-                              std::string randWord,
-                              std::string givenLetters,
                               bool &quit);
 
 private:

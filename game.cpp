@@ -32,11 +32,11 @@ bool game::guessWord(int tries,
     {
         std::string userGuess;
 
-        userGuess = userInputCase(tries, randWord_UPPER, givenLetters_UPPER, quit); //Checks if user inputs a command or just a word
+        userGuess = userInputCase(tries, quit); //Checks if user inputs a command or just a word
 
             while ((userGuess[0]== '/') & (!quit)) //if user input command. ask for guess again
             {
-                userGuess = userInputCase(tries, randWord_UPPER, givenLetters_UPPER, quit); //Checks if user inputs a command or just a word
+                userGuess = userInputCase(tries, quit); //Checks if user inputs a command or just a word
             }
         if (!quit) {
             while (userGuess.length() != randWord.length()) {
@@ -45,7 +45,7 @@ bool game::guessWord(int tries,
                 std::cout << "Please type no more or less than "
                           << randWord.length() << " letters!" << std::endl;
                 std::cout << "Please try again..." << std::endl;
-                userGuess = userInputCase(tries, randWord_UPPER, givenLetters_UPPER, quit);
+                userGuess = userInputCase(tries, quit);
             }
             std::string userGuess_UPPER = stringChangeCase(userGuess, UPPER_CASE);
 
@@ -155,8 +155,6 @@ bool game::guessWord(int tries,
 }
 
 std::string game::userInputCase(int &tries,
-                                std::string randWord,
-                                std::string givenLetters,
                                 bool &quit)
 {
     std::string wordlist;
@@ -194,7 +192,7 @@ std::string game::userInputCase(int &tries,
                 case QUIT: //user chose to quit game
                     delay delay;
                     std::cout << "You chose to quit the game..." << std::endl;
-                    std::cout << "The word was " << randWord << std::endl;
+                    std::cout << "The word was " << randWord_UPPER << std::endl;
                     delay.DELAY_IN_SECONDS(3); //delay before quit so user can see word before game end
                     quit = true;
                     break;
@@ -210,17 +208,17 @@ std::string game::userInputCase(int &tries,
                     //Decides the cheat
                     if (cheatMenuInput == "1") { //adds a letter to the word
                         int i = 0;
-                        while (givenLetters[i] != '_') {
+                        while (givenLetters_UPPER[i] != '_') {
                             i++;
                         }
-                        givenLetters[i] = randWord[i];
-                        std::cout << givenLetters << std::endl;
+                        givenLetters_UPPER[i] = randWord_UPPER[i];
+                        std::cout << givenLetters_UPPER << std::endl;
                     }
                     else if (cheatMenuInput == "2") { //adds users tries
                         std::cout << "How many ties would you like to add?" << std::endl;
                         std::cout << "Input: ";
                         std::cin >> cheatMenuInputInt;
-                        tries = cheatMenuInputInt;
+                        tries += cheatMenuInputInt;
                     }
                     else { //If user inputs invalid input, we just exit the menu
                         std::cout << "Not a valid input..." << std::endl;
@@ -229,7 +227,7 @@ std::string game::userInputCase(int &tries,
                     break;
                 case DEBUG:
                     std::cout << "DEBUG MODE" << std::endl;
-                    std::cout << "The random word is: " << randWord << std::endl;
+                    std::cout << "The random word is: " << randWord_UPPER << std::endl;
                     break;
                 case WORDLIST: //Changing the wordlist should somehow restart the game with new wordlist
                     std::cout << "What would you like to change the wordlist to?" << std::endl;
