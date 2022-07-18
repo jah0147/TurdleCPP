@@ -9,9 +9,9 @@
  */
 void console::welcome()
 {
-    std::cout<<"\n--------------------------WELCOME TO TURDLE-------------------------\n";
-    std::cout<<"The goal of the game is to guess the 5-letter word in 5 tries or less.\n";
-    std::cout<<"----------------------------Good Luck!----------------------------\n\n";
+    std::cout<<"\n------------------------------WELCOME TO TURDLE-----------------------------" << std::endl;
+    std::cout<<"The goal of the game is to guess the randomly selected word in so many tries" << std::endl;
+    std::cout<<"----------------------------------Good Luck!----------------------------------" << std::endl;
 }
 
 /*
@@ -37,17 +37,19 @@ void console::printArt()
 
 bool console::checkIfNum(std::string str)
 {
+    bool bCheckIfNumb;
     for (int i = 0; i < str.length(); i++)
     {
         if (std::isdigit(str[i]) == false)
         {
-            return false;
+            bCheckIfNumb = false;
         }
         else
         {
-            return true;
+            bCheckIfNumb = true;
         }
     }
+    return bCheckIfNumb;
 }
 
 /*
@@ -56,37 +58,28 @@ bool console::checkIfNum(std::string str)
  */
 void console::gameMode(int *difficulty, int *triesAm)
 {
-    std::cout << "PLEASE SELECT YOUR DIFFICULTY" <<std::endl;
-    std::cout << "-----------------------------" <<std::endl;
-    std::cout << "EASY - TYPE 1" <<std::endl;
-    std::cout << "MEDIUM - TYPE 2" <<std::endl;
-    std::cout << "HARD - TYPE 3" <<std::endl;
-    std::cout << "-----------------------------" <<std::endl;
+    //std::cout << "PLEASE SELECT YOUR DIFFICULTY" <<std::endl;
+    std::cout<<"------------------------------PLEASE SELECT YOUR DIFFICULTY------------------------------" << std::endl;
+    std::cout << "                                  [1] EASY - TYPE 1" <<std::endl;
+    std::cout << "                                  [2] MEDIUM - TYPE 2" <<std::endl;
+    std::cout << "                                  [3] HARD - TYPE 3" <<std::endl;
+    std::cout << "----------------------------------------------------------------------------------------" <<std::endl;
 
     std::string userInput;
     std::cout << "\nInput:";
     std::cin >> userInput; //gets usr input
-    //*difficulty = std::stoi(userInput);
+
 
     while (checkIfNum(userInput) == false)
     {
-        //We ignore incorrect number and default to easy mode
-        /*
-        while ((difficulty != three) || (difficulty != two) || (difficulty != one))
-        {
-            std::cin >> userInput;
-            difficulty = std::stoi(userInput);
-        }
-         */
-
-        //clearConsole();
+        console::clearConsole();
         std::cout << "That is not a valid input... Please try again" << std::endl;
         std::cout << "Input:";
         std::cin >> userInput;
     }
 
     *difficulty = std::stoi(userInput); //sets difficulty to an int of user string input
-
+    console::clearConsole(); //clears console after user inputs a difficulty
     switch (*difficulty)
     {
         case EASY:
@@ -129,6 +122,5 @@ void console::gameMode(int *difficulty, int *triesAm)
 void console::clearConsole()
 {
     system("CLS");
-    //std::cout << std::flush;
-    //std::cout << "";
+
 }
