@@ -27,10 +27,11 @@ bool game::guessWord(int tries,
         wordsArray_UPPER[i] = stringChangeCase(wordsArray[i], UPPER);
     }
 
+    std::string userGuess;
+
     //starting game
     while ((tries > 0) & (!done) & (!quit)) //If we run out of tries, game-over
     {
-        std::string userGuess;
         std::string userGuess_UPPER = stringChangeCase(userGuess, UPPER_CASE);
 
               // Checks if word exists in wordlist
@@ -55,9 +56,14 @@ bool game::guessWord(int tries,
             if (userGuess_UPPER == randWord_UPPER) {
                 console::clearConsole();
                 std::string continueUsrInput;
-                std::cout << "That was correct! The word was " << randWord_UPPER << std::endl;
+                std::cout << "---------------------------------------***CORRECT***---------------------------------------" << std::endl;
+                std::cout << "-------------------------------------------------------------------------------------------" << std::endl;
+                std::cout << "                                     The word was " << randWord_UPPER << std::endl;
+                std::cout << "-------------------------------------------------------------------------------------------" << std::endl;
+                std::cout << "----------------------------------------***SCORE***----------------------------------------" << std::endl;
+
                 int GAME_SCORE = score(tries); //stores score for entire game
-                std::cout << "Your score is: " << GAME_SCORE << " points!" << std::endl;
+                std::cout << "                                   Your score is: " << GAME_SCORE << " points!" << std::endl;
                 done = true;
                 delay.DELAY_IN_SECONDS(2);
             } else {
@@ -105,22 +111,22 @@ bool game::guessWord(int tries,
                         << "--------------------------------------------------------------------------------------------"
                         << std::endl;
                 std::cout << std::endl;
-            }
 
-        userGuess = userInputCase(tries, quit); //Checks if user inputs a command or just a word
+                userGuess = userInputCase(tries, quit); //Checks if user inputs a command or just a word
 
-        while ((userGuess[0]== '/') & (!quit)) //if user input command. ask for guess again
-        {
-            userGuess = userInputCase(tries, quit); //Checks if user inputs a command or just a word
-        }
-        if (!quit) {
-            while (userGuess.length() != randWord.length()) {
-                console::clearConsole();
+                while ((userGuess[0]== '/') & (!quit)) //if user input command. ask for guess again
+                {
+                    userGuess = userInputCase(tries, quit); //Checks if user inputs a command or just a word
+                }
+                if (!quit) {
+                    while (userGuess.length() != randWord.length()) {
+                        console::clearConsole();
 
-                std::cout << "Please type no more or less than "
-                          << randWord.length() << " letters!" << std::endl;
-                std::cout << "Please try again..." << std::endl;
-                userGuess = userInputCase(tries, quit);
+                        std::cout << "Please type no more or less than "
+                                  << randWord.length() << " letters!" << std::endl;
+                        std::cout << "Please try again..." << std::endl;
+                        userGuess = userInputCase(tries, quit);
+                    }
             }
 
             tries--;
