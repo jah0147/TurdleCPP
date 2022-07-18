@@ -18,10 +18,10 @@ bool game::guessWord(int tries,
     wordGen wordGen;
     console console; //init console
 
-    int arrayLength = wordGen.lineNum();
+    arrayLength = wordGen.lineNum();
     std::string wordsArray_UPPER[arrayLength];
-    std::string randWord_UPPER = stringChangeCase(randWord, UPPER);
-    std::string givenLetters_UPPER = stringChangeCase(givenLetters, UPPER); //may not work as intended
+    randWord_UPPER = stringChangeCase(randWord, UPPER);
+    givenLetters_UPPER = stringChangeCase(givenLetters, UPPER); //may not work as intended
     //capitalizing words array
     for (int i = 0; i < arrayLength; i++) {
         wordsArray_UPPER[i] = stringChangeCase(wordsArray[i], UPPER);
@@ -32,11 +32,11 @@ bool game::guessWord(int tries,
     {
         std::string userGuess;
 
-        userGuess = userInputCase(tries, randWord_UPPER, quit); //Checks if user inputs a command or just a word
+        userGuess = userInputCase(tries, randWord_UPPER, givenLetters_UPPER, quit); //Checks if user inputs a command or just a word
 
             while ((userGuess[0]== '/') & (!quit)) //if user input command. ask for guess again
             {
-                userGuess = userInputCase(tries, randWord_UPPER, quit); //Checks if user inputs a command or just a word
+                userGuess = userInputCase(tries, randWord_UPPER, givenLetters_UPPER, quit); //Checks if user inputs a command or just a word
             }
         if (!quit) {
             while (userGuess.length() != randWord.length()) {
@@ -45,7 +45,7 @@ bool game::guessWord(int tries,
                 std::cout << "Please type no more or less than "
                           << randWord.length() << " letters!" << std::endl;
                 std::cout << "Please try again..." << std::endl;
-                userGuess = userInputCase(tries, randWord_UPPER, quit);
+                userGuess = userInputCase(tries, randWord_UPPER, givenLetters_UPPER, quit);
             }
             std::string userGuess_UPPER = stringChangeCase(userGuess, UPPER_CASE);
 
@@ -154,16 +154,22 @@ bool game::guessWord(int tries,
     return continueGame; //used in main function
 }
 
-std::string game::userInputCase(int &tries, std::string randWord, bool &quit)
+std::string game::userInputCase(int &tries,
+                                std::string randWord,
+                                std::string givenLetters,
+                                bool &quit)
 {
     std::string wordlist;
     std::cout << "\nPlease enter your guess.\n" << std::endl;
-    std::string usrInput;
+    std::string usrInput = "";
     std::cout << "Input: ";
     std::cin >> usrInput;
     usrInput = stringChangeCase(usrInput, LOWER_CASE); //changing input to lower case (might give errors with commands
     int checkIfCommand;
     int usrCommand;
+    //cheatMenu inputs
+    std::string cheatMenuInput;
+    int cheatMenuInputInt;
 
     if (usrInput[0] == '/')
     {
@@ -174,12 +180,17 @@ std::string game::userInputCase(int &tries, std::string randWord, bool &quit)
         else if (usrInput == "/wordlist") {usrCommand = WORDLIST;}
         else {usrCommand = NOTCOMMAND;} //if user inputs a non-existent command
     }
+    else {
+        checkIfCommand = 0; //not command, should be a user guess
+    }
 
 
     switch (checkIfCommand)
     {
         case isCOMMAND: //isCommand
             switch (usrCommand) {
+                //console::clearConsole(); //clears console
+
                 case QUIT: //user chose to quit game
                     delay delay;
                     std::cout << "You chose to quit the game..." << std::endl;
@@ -188,9 +199,33 @@ std::string game::userInputCase(int &tries, std::string randWord, bool &quit)
                     quit = true;
                     break;
                 case CHEAT:
-                    std::cout << "You have chosen to cheat" << std::endl;
-                    std::cout << "Enter how many tries you would like: ";
-                    //not implemented yet
+                    std::cout << "\n-------------------------CHEAT MENU-------------------------" << std::endl;
+                    std::cout << "Would you like an extra letter in the word or more tries?" << std::endl;
+                    std::cout << "[1] Add Extra Letter" << std::endl;
+                    std::cout << "[2] Add Attempts" << std::endl;
+                    std::cout << "--------------------------------------------------------------" << std::endl;
+                    //User input
+                    std::cout << "\nInput: ";
+                    std::cin >> cheatMenuInput;
+                    //Decides the cheat
+                    if (cheatMenuInput == "1") { //adds a letter to the word
+                        int i = 0;
+                        while (givenLetters[i] != '_') {
+                            i++;
+                        }
+                        givenLetters[i] = randWord[i];
+                        std::cout << givenLetters << std::endl;
+                    }
+                    else if (cheatMenuInput == "2") { //adds users tries
+                        std::cout << "How many ties would you like to add?" << std::endl;
+                        std::cout << "Input: ";
+                        std::cin >> cheatMenuInputInt;
+                        tries = cheatMenuInputInt;
+                    }
+                    else { //If user inputs invalid input, we just exit the menu
+                        std::cout << "Not a valid input..." << std::endl;
+                        std::cout << "Exiting Cheat Menu" << std::endl;
+                    }
                     break;
                 case DEBUG:
                     std::cout << "DEBUG MODE" << std::endl;
@@ -205,7 +240,7 @@ std::string game::userInputCase(int &tries, std::string randWord, bool &quit)
                     std::cout << "That is not a valid command..." << std::endl;
                     break;
             }
-
+            break;
         default:
             return usrInput; //only return user input if they do not input a command
     }

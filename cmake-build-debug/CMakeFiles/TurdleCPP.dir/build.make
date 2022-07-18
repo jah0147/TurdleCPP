@@ -43,19 +43,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "D:\Program Files\JetBrains\CLion 2022.1.3\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2022.1.2\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "D:\Program Files\JetBrains\CLion 2022.1.3\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = "C:\Program Files\JetBrains\CLion 2022.1.2\bin\cmake\win\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Jacob Howard\CLionProjects\TurdleCPP"
+CMAKE_SOURCE_DIR = C:\Users\jacob_howard\CLionProjects\TurdleCPP
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Jacob Howard\CLionProjects\TurdleCPP\cmake-build-debug"
+CMAKE_BINARY_DIR = C:\Users\jacob_howard\CLionProjects\TurdleCPP\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/TurdleCPP.dir/depend.make
@@ -71,86 +71,86 @@ include CMakeFiles/TurdleCPP.dir/flags.make
 CMakeFiles/TurdleCPP.dir/main.cpp.obj: CMakeFiles/TurdleCPP.dir/flags.make
 CMakeFiles/TurdleCPP.dir/main.cpp.obj: ../main.cpp
 CMakeFiles/TurdleCPP.dir/main.cpp.obj: CMakeFiles/TurdleCPP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Jacob Howard\CLionProjects\TurdleCPP\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TurdleCPP.dir/main.cpp.obj"
-	D:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TurdleCPP.dir/main.cpp.obj -MF CMakeFiles\TurdleCPP.dir\main.cpp.obj.d -o CMakeFiles\TurdleCPP.dir\main.cpp.obj -c "C:\Users\Jacob Howard\CLionProjects\TurdleCPP\main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jacob_howard\CLionProjects\TurdleCPP\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TurdleCPP.dir/main.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TurdleCPP.dir/main.cpp.obj -MF CMakeFiles\TurdleCPP.dir\main.cpp.obj.d -o CMakeFiles\TurdleCPP.dir\main.cpp.obj -c C:\Users\jacob_howard\CLionProjects\TurdleCPP\main.cpp
 
 CMakeFiles/TurdleCPP.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TurdleCPP.dir/main.cpp.i"
-	D:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Jacob Howard\CLionProjects\TurdleCPP\main.cpp" > CMakeFiles\TurdleCPP.dir\main.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jacob_howard\CLionProjects\TurdleCPP\main.cpp > CMakeFiles\TurdleCPP.dir\main.cpp.i
 
 CMakeFiles/TurdleCPP.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TurdleCPP.dir/main.cpp.s"
-	D:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Jacob Howard\CLionProjects\TurdleCPP\main.cpp" -o CMakeFiles\TurdleCPP.dir\main.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jacob_howard\CLionProjects\TurdleCPP\main.cpp -o CMakeFiles\TurdleCPP.dir\main.cpp.s
 
 CMakeFiles/TurdleCPP.dir/console.cpp.obj: CMakeFiles/TurdleCPP.dir/flags.make
 CMakeFiles/TurdleCPP.dir/console.cpp.obj: ../console.cpp
 CMakeFiles/TurdleCPP.dir/console.cpp.obj: CMakeFiles/TurdleCPP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Jacob Howard\CLionProjects\TurdleCPP\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/TurdleCPP.dir/console.cpp.obj"
-	D:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TurdleCPP.dir/console.cpp.obj -MF CMakeFiles\TurdleCPP.dir\console.cpp.obj.d -o CMakeFiles\TurdleCPP.dir\console.cpp.obj -c "C:\Users\Jacob Howard\CLionProjects\TurdleCPP\console.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jacob_howard\CLionProjects\TurdleCPP\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/TurdleCPP.dir/console.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TurdleCPP.dir/console.cpp.obj -MF CMakeFiles\TurdleCPP.dir\console.cpp.obj.d -o CMakeFiles\TurdleCPP.dir\console.cpp.obj -c C:\Users\jacob_howard\CLionProjects\TurdleCPP\console.cpp
 
 CMakeFiles/TurdleCPP.dir/console.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TurdleCPP.dir/console.cpp.i"
-	D:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Jacob Howard\CLionProjects\TurdleCPP\console.cpp" > CMakeFiles\TurdleCPP.dir\console.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jacob_howard\CLionProjects\TurdleCPP\console.cpp > CMakeFiles\TurdleCPP.dir\console.cpp.i
 
 CMakeFiles/TurdleCPP.dir/console.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TurdleCPP.dir/console.cpp.s"
-	D:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Jacob Howard\CLionProjects\TurdleCPP\console.cpp" -o CMakeFiles\TurdleCPP.dir\console.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jacob_howard\CLionProjects\TurdleCPP\console.cpp -o CMakeFiles\TurdleCPP.dir\console.cpp.s
 
 CMakeFiles/TurdleCPP.dir/delay.cpp.obj: CMakeFiles/TurdleCPP.dir/flags.make
 CMakeFiles/TurdleCPP.dir/delay.cpp.obj: ../delay.cpp
 CMakeFiles/TurdleCPP.dir/delay.cpp.obj: CMakeFiles/TurdleCPP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Jacob Howard\CLionProjects\TurdleCPP\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/TurdleCPP.dir/delay.cpp.obj"
-	D:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TurdleCPP.dir/delay.cpp.obj -MF CMakeFiles\TurdleCPP.dir\delay.cpp.obj.d -o CMakeFiles\TurdleCPP.dir\delay.cpp.obj -c "C:\Users\Jacob Howard\CLionProjects\TurdleCPP\delay.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jacob_howard\CLionProjects\TurdleCPP\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/TurdleCPP.dir/delay.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TurdleCPP.dir/delay.cpp.obj -MF CMakeFiles\TurdleCPP.dir\delay.cpp.obj.d -o CMakeFiles\TurdleCPP.dir\delay.cpp.obj -c C:\Users\jacob_howard\CLionProjects\TurdleCPP\delay.cpp
 
 CMakeFiles/TurdleCPP.dir/delay.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TurdleCPP.dir/delay.cpp.i"
-	D:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Jacob Howard\CLionProjects\TurdleCPP\delay.cpp" > CMakeFiles\TurdleCPP.dir\delay.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jacob_howard\CLionProjects\TurdleCPP\delay.cpp > CMakeFiles\TurdleCPP.dir\delay.cpp.i
 
 CMakeFiles/TurdleCPP.dir/delay.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TurdleCPP.dir/delay.cpp.s"
-	D:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Jacob Howard\CLionProjects\TurdleCPP\delay.cpp" -o CMakeFiles\TurdleCPP.dir\delay.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jacob_howard\CLionProjects\TurdleCPP\delay.cpp -o CMakeFiles\TurdleCPP.dir\delay.cpp.s
 
 CMakeFiles/TurdleCPP.dir/wordGen.cpp.obj: CMakeFiles/TurdleCPP.dir/flags.make
 CMakeFiles/TurdleCPP.dir/wordGen.cpp.obj: ../wordGen.cpp
 CMakeFiles/TurdleCPP.dir/wordGen.cpp.obj: CMakeFiles/TurdleCPP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Jacob Howard\CLionProjects\TurdleCPP\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/TurdleCPP.dir/wordGen.cpp.obj"
-	D:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TurdleCPP.dir/wordGen.cpp.obj -MF CMakeFiles\TurdleCPP.dir\wordGen.cpp.obj.d -o CMakeFiles\TurdleCPP.dir\wordGen.cpp.obj -c "C:\Users\Jacob Howard\CLionProjects\TurdleCPP\wordGen.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jacob_howard\CLionProjects\TurdleCPP\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/TurdleCPP.dir/wordGen.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TurdleCPP.dir/wordGen.cpp.obj -MF CMakeFiles\TurdleCPP.dir\wordGen.cpp.obj.d -o CMakeFiles\TurdleCPP.dir\wordGen.cpp.obj -c C:\Users\jacob_howard\CLionProjects\TurdleCPP\wordGen.cpp
 
 CMakeFiles/TurdleCPP.dir/wordGen.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TurdleCPP.dir/wordGen.cpp.i"
-	D:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Jacob Howard\CLionProjects\TurdleCPP\wordGen.cpp" > CMakeFiles\TurdleCPP.dir\wordGen.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jacob_howard\CLionProjects\TurdleCPP\wordGen.cpp > CMakeFiles\TurdleCPP.dir\wordGen.cpp.i
 
 CMakeFiles/TurdleCPP.dir/wordGen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TurdleCPP.dir/wordGen.cpp.s"
-	D:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Jacob Howard\CLionProjects\TurdleCPP\wordGen.cpp" -o CMakeFiles\TurdleCPP.dir\wordGen.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jacob_howard\CLionProjects\TurdleCPP\wordGen.cpp -o CMakeFiles\TurdleCPP.dir\wordGen.cpp.s
 
 CMakeFiles/TurdleCPP.dir/game.cpp.obj: CMakeFiles/TurdleCPP.dir/flags.make
 CMakeFiles/TurdleCPP.dir/game.cpp.obj: ../game.cpp
 CMakeFiles/TurdleCPP.dir/game.cpp.obj: CMakeFiles/TurdleCPP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Jacob Howard\CLionProjects\TurdleCPP\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/TurdleCPP.dir/game.cpp.obj"
-	D:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TurdleCPP.dir/game.cpp.obj -MF CMakeFiles\TurdleCPP.dir\game.cpp.obj.d -o CMakeFiles\TurdleCPP.dir\game.cpp.obj -c "C:\Users\Jacob Howard\CLionProjects\TurdleCPP\game.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jacob_howard\CLionProjects\TurdleCPP\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/TurdleCPP.dir/game.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TurdleCPP.dir/game.cpp.obj -MF CMakeFiles\TurdleCPP.dir\game.cpp.obj.d -o CMakeFiles\TurdleCPP.dir\game.cpp.obj -c C:\Users\jacob_howard\CLionProjects\TurdleCPP\game.cpp
 
 CMakeFiles/TurdleCPP.dir/game.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TurdleCPP.dir/game.cpp.i"
-	D:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Jacob Howard\CLionProjects\TurdleCPP\game.cpp" > CMakeFiles\TurdleCPP.dir\game.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jacob_howard\CLionProjects\TurdleCPP\game.cpp > CMakeFiles\TurdleCPP.dir\game.cpp.i
 
 CMakeFiles/TurdleCPP.dir/game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TurdleCPP.dir/game.cpp.s"
-	D:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Jacob Howard\CLionProjects\TurdleCPP\game.cpp" -o CMakeFiles\TurdleCPP.dir\game.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jacob_howard\CLionProjects\TurdleCPP\game.cpp -o CMakeFiles\TurdleCPP.dir\game.cpp.s
 
 CMakeFiles/TurdleCPP.dir/sound.cpp.obj: CMakeFiles/TurdleCPP.dir/flags.make
 CMakeFiles/TurdleCPP.dir/sound.cpp.obj: ../sound.cpp
 CMakeFiles/TurdleCPP.dir/sound.cpp.obj: CMakeFiles/TurdleCPP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Jacob Howard\CLionProjects\TurdleCPP\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/TurdleCPP.dir/sound.cpp.obj"
-	D:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TurdleCPP.dir/sound.cpp.obj -MF CMakeFiles\TurdleCPP.dir\sound.cpp.obj.d -o CMakeFiles\TurdleCPP.dir\sound.cpp.obj -c "C:\Users\Jacob Howard\CLionProjects\TurdleCPP\sound.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jacob_howard\CLionProjects\TurdleCPP\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/TurdleCPP.dir/sound.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TurdleCPP.dir/sound.cpp.obj -MF CMakeFiles\TurdleCPP.dir\sound.cpp.obj.d -o CMakeFiles\TurdleCPP.dir\sound.cpp.obj -c C:\Users\jacob_howard\CLionProjects\TurdleCPP\sound.cpp
 
 CMakeFiles/TurdleCPP.dir/sound.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TurdleCPP.dir/sound.cpp.i"
-	D:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Jacob Howard\CLionProjects\TurdleCPP\sound.cpp" > CMakeFiles\TurdleCPP.dir\sound.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jacob_howard\CLionProjects\TurdleCPP\sound.cpp > CMakeFiles\TurdleCPP.dir\sound.cpp.i
 
 CMakeFiles/TurdleCPP.dir/sound.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TurdleCPP.dir/sound.cpp.s"
-	D:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Jacob Howard\CLionProjects\TurdleCPP\sound.cpp" -o CMakeFiles\TurdleCPP.dir\sound.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jacob_howard\CLionProjects\TurdleCPP\sound.cpp -o CMakeFiles\TurdleCPP.dir\sound.cpp.s
 
 # Object files for target TurdleCPP
 TurdleCPP_OBJECTS = \
@@ -174,7 +174,7 @@ TurdleCPP.exe: CMakeFiles/TurdleCPP.dir/build.make
 TurdleCPP.exe: CMakeFiles/TurdleCPP.dir/linklibs.rsp
 TurdleCPP.exe: CMakeFiles/TurdleCPP.dir/objects1.rsp
 TurdleCPP.exe: CMakeFiles/TurdleCPP.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Jacob Howard\CLionProjects\TurdleCPP\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable TurdleCPP.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\jacob_howard\CLionProjects\TurdleCPP\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable TurdleCPP.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\TurdleCPP.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -186,6 +186,6 @@ CMakeFiles/TurdleCPP.dir/clean:
 .PHONY : CMakeFiles/TurdleCPP.dir/clean
 
 CMakeFiles/TurdleCPP.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Jacob Howard\CLionProjects\TurdleCPP" "C:\Users\Jacob Howard\CLionProjects\TurdleCPP" "C:\Users\Jacob Howard\CLionProjects\TurdleCPP\cmake-build-debug" "C:\Users\Jacob Howard\CLionProjects\TurdleCPP\cmake-build-debug" "C:\Users\Jacob Howard\CLionProjects\TurdleCPP\cmake-build-debug\CMakeFiles\TurdleCPP.dir\DependInfo.cmake" --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\jacob_howard\CLionProjects\TurdleCPP C:\Users\jacob_howard\CLionProjects\TurdleCPP C:\Users\jacob_howard\CLionProjects\TurdleCPP\cmake-build-debug C:\Users\jacob_howard\CLionProjects\TurdleCPP\cmake-build-debug C:\Users\jacob_howard\CLionProjects\TurdleCPP\cmake-build-debug\CMakeFiles\TurdleCPP.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/TurdleCPP.dir/depend
 

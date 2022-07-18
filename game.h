@@ -32,7 +32,10 @@ public:
 
     std::string stringChangeCase(std::string String, int Case); //turns strings into all lowercase for comparisons
 
-    std::string userInputCase(int &tries, std::string randWord, bool &quit);
+    std::string userInputCase(int &tries,
+                              std::string randWord,
+                              std::string givenLetters,
+                              bool &quit);
 
 private:
     enum CONTINUE_STATE
@@ -62,6 +65,10 @@ private:
     bool continueGame;
     bool done = false;
     bool quit = false;
+
+    std::string givenLetters_UPPER;
+    std::string randWord_UPPER;
+    int arrayLength;
 };
 
 
