@@ -67,6 +67,7 @@ private:
     std::string givenLetters_UPPER;
     std::string randWord_UPPER;
     int arrayLength;
+    bool didCheat = false; //changes if user uses cheat command
 };
 
 

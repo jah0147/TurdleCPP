@@ -64,6 +64,14 @@ bool game::guessWord(int tries,
 
                 int GAME_SCORE = score(tries); //stores score for entire game
                 std::cout << "                                   Your score is: " << GAME_SCORE << " points!" << std::endl;
+                std::cout << "-------------------------------------------------------------------------------------------" << std::endl;
+
+                if (didCheat) { //If the user used the cheat command
+                    std::cout << "-------------------------------------------CHEATER-------------------------------------" << std::endl;
+                    std::cout << "                          You did cheat though... Not very impressive" << std::endl;
+                    std::cout << "-------------------------------------------------------------------------------------------" << std::endl;
+                }
+
                 done = true;
                 delay.DELAY_IN_SECONDS(2);
             } else {
@@ -203,42 +211,49 @@ std::string game::userInputCase(int &tries,
                     quit = true;
                     break;
                 case CHEAT:
-                    std::cout << "\n--------------------------CHEAT MENU--------------------------" << std::endl;
-                    std::cout << "  Would you like an extra letter in the word or more tries?" << std::endl;
-                    std::cout << "--------------------------------------------------------------" << std::endl;
-                    std::cout << "[1] Add Extra Letter" << std::endl;
-                    std::cout << "[2] Add Attempts" << std::endl;
-                    std::cout << "--------------------------------------------------------------" << std::endl;
-                    //User input
-                    std::cout << "\nInput: ";
-                    std::cin >> cheatMenuInput;
-                    //Decides the cheat
-                    if (cheatMenuInput == "1") { //adds a letter to the word
-                        int i = 0;
-                        while (givenLetters_UPPER[i] != '_') {
-                            i++;
-                        }
-                        console::clearConsole();
-                        givenLetters_UPPER[i] = randWord_UPPER[i];
-                        std::cout << "Your given letters are: " << givenLetters_UPPER << std::endl;
-                    }
-                    else if (cheatMenuInput == "2") { //adds users tries
-                        console::clearConsole();
-                        std::cout << "How many ties would you like to add?" << std::endl;
-                        std::cout << "Input: ";
-                        std::cin >> cheatMenuInputInt;
+                    if (!didCheat)
+                    {
+                        didCheat = true;
+                        std::cout << "\n--------------------------CHEAT MENU--------------------------" << std::endl;
+                        std::cout << "  Would you like an extra letter in the word or more tries?" << std::endl;
+                        std::cout << "--------------------------------------------------------------" << std::endl;
+                        std::cout << "[1] Add Extra Letter" << std::endl;
+                        std::cout << "[2] Add Attempts" << std::endl;
+                        std::cout << "--------------------------------------------------------------" << std::endl;
+                        //User input
+                        std::cout << "\nInput: ";
+                        std::cin >> cheatMenuInput;
+                        //Decides the cheat
+                        if (cheatMenuInput == "1") { //adds a letter to the word
+                            int i = 0;
+                            while (givenLetters_UPPER[i] != '_') {
+                                i++;
+                            }
+                            console::clearConsole();
+                            givenLetters_UPPER[i] = randWord_UPPER[i];
+                            std::cout << "Your given letters are: " << givenLetters_UPPER << std::endl;
+                        } else if (cheatMenuInput == "2") { //adds users tries
+                            console::clearConsole();
+                            std::cout << "How many ties would you like to add?" << std::endl;
+                            std::cout << "Input: ";
+                            std::cin >> cheatMenuInputInt;
 
-                        tries += cheatMenuInputInt;
-                        console::clearConsole();
-                        std::cout << "You now have " << tries <<" tries remaining" << std::endl;
-                        delay.DELAY_IN_SECONDS(2);
-                        console::clearConsole();
-                    }
-                    else { //If user inputs invalid input, we just exit the menu
-                        std::cout << "Not a valid input..." << std::endl;
-                        std::cout << "Exiting Cheat Menu" << std::endl;
-                        delay.DELAY_IN_SECONDS(1);
-                        console::clearConsole();
+                            tries += cheatMenuInputInt;
+                            console::clearConsole();
+                            std::cout << "You now have " << tries << " tries remaining" << std::endl;
+                            delay.DELAY_IN_SECONDS(2);
+                            console::clearConsole();
+                        } else { //If user inputs invalid input, we just exit the menu
+                            std::cout << "Not a valid input..." << std::endl;
+                            std::cout << "Exiting Cheat Menu" << std::endl;
+                            delay.DELAY_IN_SECONDS(1);
+                            console::clearConsole();
+                        }
+
+                    }//if (!didCheat)
+                    else
+                    {
+                        std::cout << "You may only use the cheat command once per game." << std::endl;
                     }
                     break;
                 case DEBUG:
