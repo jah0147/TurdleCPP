@@ -181,7 +181,7 @@ bool game::guessWord(int tries,
             gameOverInput = stringChangeCase(gameOverInput, UPPER_CASE);
             if (gameOverInput == "Y" || gameOverInput == "YES")
             {
-                int GAME_SCORE = score(0, true);
+                GAME_SCORE = score(0, true);
                 continueGame = true;
             } else {
                 continueGame = false;
