@@ -62,12 +62,12 @@ bool game::guessWord(int tries,
                 std::cout << "-------------------------------------------------------------------------------------------" << std::endl;
                 std::cout << "----------------------------------------***SCORE***----------------------------------------" << std::endl;
 
-                int GAME_SCORE = score(tries); //stores score for entire game
+                GAME_SCORE = score(tries, false); //stores score for entire game
                 std::cout << "                                   Your score is: " << GAME_SCORE << " points!" << std::endl;
                 std::cout << "-------------------------------------------------------------------------------------------" << std::endl;
 
                 if (didCheat) { //If the user used the cheat command
-                    std::cout << "-------------------------------------------CHEATER-------------------------------------" << std::endl;
+                    std::cout << "\n-------------------------------------------CHEATER-------------------------------------" << std::endl;
                     std::cout << "                          You did cheat though... Not very impressive" << std::endl;
                     std::cout << "-------------------------------------------------------------------------------------------" << std::endl;
                 }
@@ -153,13 +153,39 @@ bool game::guessWord(int tries,
                 continueGame = false;
             }
         } else {
+            std::string gameOverInput;
             console::clearConsole();
-            std::cout << std::endl;
-            std::cout << "You have ran out of tries..." << std::endl;
-            std::cout << "The word was " << randWord_UPPER << std::endl;
-            std::cout << "\n         Game Over";
-            continueGame = false;
-            delay.DELAY_IN_SECONDS(3);
+
+            std::cout
+                    << "------------------------------------------GAME OVER----------------------------------------"
+                    << std::endl;
+            std::cout << "                                  You have ran out of tries..." << std::endl;
+            std::cout
+                    << "--------------------------------------------------------------------------------------------"
+                    << std::endl;
+            std::cout << "                                      The word was " << randWord_UPPER << std::endl;
+            std::cout
+                    << "--------------------------------------------------------------------------------------------"
+                    << std::endl;
+            std::cout
+                    << "--------------------------------------------SCORE--------------------------------------------"
+                    << std::endl;
+            std::cout << "                                    Your score was " << GAME_SCORE << " points!" << std::endl;
+            std::cout
+                    << "--------------------------------------------------------------------------------------------"
+                    << std::endl;
+            delay.DELAY_IN_SECONDS(1);
+            std::cout << "                              \nWould you like to play again? (Y/N)" << std::endl;
+            std::cout << "Input: ";
+            std::cin >> gameOverInput;
+            gameOverInput = stringChangeCase(gameOverInput, UPPER_CASE);
+            if (gameOverInput == "Y" || gameOverInput == "YES")
+            {
+                int GAME_SCORE = score(0, true);
+                continueGame = true;
+            } else {
+                continueGame = false;
+            }
         }
     }
     else {

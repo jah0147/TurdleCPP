@@ -9,8 +9,12 @@
 
 int newScore = 0;
 
-inline int score(int addScore)
+inline int score(int addScore, bool RESET)
 {
-    newScore += addScore;
+    if (!RESET) {
+        newScore += addScore;
+    } else {
+        newScore = 0;
+    }
     return newScore;
 }

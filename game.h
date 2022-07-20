@@ -64,6 +64,7 @@ private:
     bool done = false;
     bool quit = false;
 
+    int GAME_SCORE;
     std::string givenLetters_UPPER;
     std::string randWord_UPPER;
     int arrayLength;
