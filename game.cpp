@@ -54,10 +54,7 @@ bool game::guessWord(int tries,
 
             //User guessed Correct Word
             if (userGuess_UPPER == randWord_UPPER) {
-                if (didCheat)
-                {
-                    GAME_SCORE = score(0, true); //resets game score to zero if user cheated
-                }
+
                 console::clearConsole();
                 std::string continueUsrInput;
                 std::cout << "---------------------------------------***CORRECT***---------------------------------------" << std::endl;
@@ -67,6 +64,12 @@ bool game::guessWord(int tries,
                 std::cout << "----------------------------------------***SCORE***----------------------------------------" << std::endl;
 
                 GAME_SCORE = score(tries, false); //stores score for entire game
+
+                if (didCheat) //checks if user cheated
+                {
+                    GAME_SCORE = score(0, true); //resets game score to zero if user cheated
+                }
+
                 std::cout << "                                   Your score is: " << GAME_SCORE << " points!" << std::endl;
                 std::cout << "-------------------------------------------------------------------------------------------" << std::endl;
 
