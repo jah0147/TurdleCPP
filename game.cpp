@@ -75,7 +75,7 @@ bool game::guessWord(int tries,
 
                 if (didCheat) { //If the user used the cheat command
                     std::cout << "\n-------------------------------------------CHEATER-------------------------------------" << std::endl;
-                    std::cout << "                          You did cheat though... Not very impressive" << std::endl;
+                    std::cout << "                          You did cheat though... Not very impressive." << std::endl;
                     std::cout << "                           I went ahead and reset your score to zero." << std::endl;
                     std::cout << "-------------------------------------------------------------------------------------------" << std::endl;
                 }
