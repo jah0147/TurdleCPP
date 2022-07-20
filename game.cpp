@@ -56,7 +56,7 @@ bool game::guessWord(int tries,
             if (userGuess_UPPER == randWord_UPPER) {
                 if (didCheat)
                 {
-                    GAME_SCORE = score(0, true) //resets game score to zero if user cheated
+                    GAME_SCORE = score(0, true); //resets game score to zero if user cheated
                 }
                 console::clearConsole();
                 std::string continueUsrInput;
