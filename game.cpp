@@ -326,6 +326,7 @@ void game::checkIfWord(int difficulty,
             }
             if (!realWord) //If the user does not guess an existing word
             {
+                console::clearConsole(); //clears console
                 std::cout <<"That word does not exist in the word-bank..." << std::endl;
                 std::cout << "Please try again" << std::endl;
                 std::cout <<"\nInput: ";
