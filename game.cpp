@@ -37,20 +37,27 @@ bool game::guessWord(int tries,
               // Checks if word exists in wordlist
               //currently not working - needs fix
               //
-//            if (difficulty != 1) //if the difficulty is not set to easy (this is a mess)
-//            {
-//                bool realWord = false;
-//                while (!realWord)
-//                {
-//                    for (int i = 0; i < arrayLength; i++) {
-//                        if ((randWord_UPPER[i].find(userGuess_UPPER) !=
-//                             std::string::npos)) //checks to see if word exists in wordbank
-//                        {
-//                            realWord = true;
-//                        }
-//                    }
-//                }
-//            }
+            if (difficulty != 1) //if the difficulty is not set to easy (this is a mess)
+            {
+                bool realWord = false;
+                while (!realWord)
+                {
+                    for (int i = 0; i < arrayLength; i++) {
+                        if (userGuess_UPPER == wordsArray_UPPER[i]) //checks to see if word exists in wordbank
+                        {
+                            realWord = true;
+                        }
+                    }
+                    if (!realWord) //If the user does not guess an existing word
+                    {
+                        std::cout <<"That word does not exist in the word-bank..." << std::endl;
+                        std::cout << "Please try again" << std::endl;
+                        std::cout <<"\nInput: ";
+                        std::cin >> userGuess;
+                        userGuess_UPPER = stringChangeCase(userGuess, UPPER_CASE);
+                    }
+                }
+            }
 
             //User guessed Correct Word
             if (userGuess_UPPER == randWord_UPPER) {
