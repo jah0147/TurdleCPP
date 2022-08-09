@@ -34,31 +34,6 @@ bool game::guessWord(int tries,
     {
         std::string userGuess_UPPER = stringChangeCase(userGuess, UPPER_CASE);
 
-              // Checks if word exists in wordlist
-              //currently not working - needs fix
-              //
-            if (difficulty != 1) //if the difficulty is not set to easy (this is a mess)
-            {
-                bool realWord = false;
-                while (!realWord)
-                {
-                    for (int i = 0; i < arrayLength; i++) {
-                        if (userGuess_UPPER == wordsArray_UPPER[i]) //checks to see if word exists in wordbank
-                        {
-                            realWord = true;
-                        }
-                    }
-                    if (!realWord) //If the user does not guess an existing word
-                    {
-                        std::cout <<"That word does not exist in the word-bank..." << std::endl;
-                        std::cout << "Please try again" << std::endl;
-                        std::cout <<"\nInput: ";
-                        std::cin >> userGuess;
-                        userGuess_UPPER = stringChangeCase(userGuess, UPPER_CASE);
-                    }
-                }
-            }
-
             //User guessed Correct Word
             if (userGuess_UPPER == randWord_UPPER) {
 
@@ -142,13 +117,19 @@ bool game::guessWord(int tries,
                     userGuess = userInputCase(tries, quit); //Checks if user inputs a command or just a word
                 }
                 if (!quit) {
-                    while (userGuess.length() != randWord.length()) {
-                        console::clearConsole();
+                    if (difficulty == 1) { //if easy mode
+                        while (userGuess.length() != randWord.length()) {
+                            console::clearConsole();
 
-                        std::cout << "Please type no more or less than "
-                                  << randWord.length() << " letters!" << std::endl;
-                        std::cout << "Please try again..." << std::endl;
-                        userGuess = userInputCase(tries, quit);
+                            std::cout << "Please type no more or less than "
+                                      << randWord.length() << " letters!" << std::endl;
+                            std::cout << "Please try again..." << std::endl;
+                            userGuess = userInputCase(tries, quit);
+                        }
+                    }
+                    else { //if medium or hard mode
+                        // Checks if word exists in wordlist
+                        checkIfWord(difficulty, userGuess, userGuess_UPPER, wordsArray_UPPER);
                     }
             }
 
@@ -319,6 +300,40 @@ std::string game::userInputCase(int &tries,
             return usrInput; //only return user input if they do not input a command
     }
     return usrInput; //only return user input if they do not input a command
+}
+
+/*
+ * Function: checkIfWord
+ * Description: Takes the user input and compairs it to the word list
+ * to see if the word exists. Only does this for medium or hard mode.
+ */
+
+void game::checkIfWord(int difficulty,
+                  std::string userGuess,
+                  std::string userGuess_UPPER,
+                  std::string wordsArray_UPPER[])
+{
+    if (difficulty != 1) //if the difficulty is not set to easy (this is a mess)
+    {
+        bool realWord = false;
+        while (!realWord)
+        {
+            for (int i = 0; i < arrayLength; i++) {
+                if (userGuess_UPPER == wordsArray_UPPER[i]) //checks to see if word exists in wordbank
+                {
+                    realWord = true;
+                }
+            }
+            if (!realWord) //If the user does not guess an existing word
+            {
+                std::cout <<"That word does not exist in the word-bank..." << std::endl;
+                std::cout << "Please try again" << std::endl;
+                std::cout <<"\nInput: ";
+                std::cin >> userGuess;
+                userGuess_UPPER = stringChangeCase(userGuess, UPPER_CASE);
+            }
+        }
+    }
 }
 
 /*
