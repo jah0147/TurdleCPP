@@ -129,7 +129,7 @@ bool game::guessWord(int tries,
                     }
                     else { //if medium or hard mode
                         // Checks if word exists in wordlist
-                        checkIfWord(difficulty, userGuess, userGuess_UPPER, wordsArray_UPPER);
+                        userGuess = checkIfWord(difficulty, userGuess, wordsArray_UPPER);
                     }
             }
 
@@ -308,9 +308,8 @@ std::string game::userInputCase(int &tries,
  * to see if the word exists. Only does this for medium or hard mode.
  */
 
-void game::checkIfWord(int difficulty,
+std::string game::checkIfWord(int difficulty,
                   std::string userGuess,
-                  std::string userGuess_UPPER,
                   std::string wordsArray_UPPER[])
 {
     if (difficulty != 1) //if the difficulty is not set to easy (this is a mess)
@@ -318,6 +317,7 @@ void game::checkIfWord(int difficulty,
         bool realWord = false;
         while (!realWord)
         {
+            std::string userGuess_UPPER = stringChangeCase(userGuess, UPPER_CASE);
             for (int i = 0; i < arrayLength; i++) {
                 if (userGuess_UPPER == wordsArray_UPPER[i]) //checks to see if word exists in wordbank
                 {
@@ -331,10 +331,10 @@ void game::checkIfWord(int difficulty,
                 std::cout << "Please try again" << std::endl;
                 std::cout <<"\nInput: ";
                 std::cin >> userGuess;
-                userGuess_UPPER = stringChangeCase(userGuess, UPPER_CASE);
             }
         }
     }
+    return userGuess;
 }
 
 /*

@@ -30,9 +30,8 @@ public:
 
     void printVectorValues(std::vector<std::string> v);
 
-    void checkIfWord(int difficulty,
+    std::string checkIfWord(int difficulty,
                      std::string userGuess,
-                     std::string userGuess_UPPER,
                      std::string wordsArray_UPPER[]);
 
     std::string stringChangeCase(std::string String, int Case); //turns strings into all lowercase for comparisons
