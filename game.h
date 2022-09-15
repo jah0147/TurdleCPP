@@ -40,6 +40,9 @@ public:
                               bool &quit);
 
 private:
+    bool realWord = true;
+    bool tooManyLetters = false;
+
     enum CONTINUE_STATE
     {
         YES = true,

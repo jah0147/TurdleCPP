@@ -66,9 +66,11 @@ bool game::guessWord(int tries,
                 delay.DELAY_IN_SECONDS(2);
             } else {
                 console::clearConsole();
-                givenLetters_UPPER = compairGuess(userGuess_UPPER,
-                                                  randWord_UPPER,
-                                                  givenLetters_UPPER);
+                if (realWord) {
+                    givenLetters_UPPER = compairGuess(userGuess_UPPER,
+                                                      randWord_UPPER,
+                                                      givenLetters_UPPER);
+                }
 
 
                 std::cout
@@ -110,6 +112,12 @@ bool game::guessWord(int tries,
                         << std::endl;
                 std::cout << std::endl;
 
+                if (!realWord)
+                {
+                    std::cout << "That is not a word in the word bank!" << std::endl;
+                    std::cout << "Please try again..." << std::endl;
+                }
+
                 userGuess = userInputCase(tries, quit); //Checks if user inputs a command or just a word
 
                 while ((userGuess[0]== '/') & (!quit)) //if user input command. ask for guess again
@@ -129,11 +137,20 @@ bool game::guessWord(int tries,
                     }
                     else { //if medium or hard mode
                         // Checks if word exists in wordlist
-                        userGuess = checkIfWord(difficulty, userGuess, wordsArray_UPPER);
+                        checkIfWord(difficulty, userGuess, wordsArray_UPPER);
+                        if (realWord)
+                        {
+                            userGuess = checkIfWord(difficulty, userGuess, wordsArray_UPPER);
+                        }
                     }
             }
-
-            tries--;
+            if ((difficulty != 1) & (realWord)) {
+                tries--;
+            }
+            else if (difficulty == 1)
+            {
+                tries --;
+            }
         }
     }
 
@@ -314,25 +331,24 @@ std::string game::checkIfWord(int difficulty,
 {
     if (difficulty != 1) //if the difficulty is not set to easy (this is a mess)
     {
-        bool realWord = false;
-        while (!realWord)
-        {
-            std::string userGuess_UPPER = stringChangeCase(userGuess, UPPER_CASE);
-            for (int i = 0; i < arrayLength; i++) {
-                if (userGuess_UPPER == wordsArray_UPPER[i]) //checks to see if word exists in wordbank
-                {
-                    realWord = true;
-                }
-            }
-            if (!realWord) //If the user does not guess an existing word
+        realWord = false;
+
+        std::string userGuess_UPPER = stringChangeCase(userGuess, UPPER_CASE);
+        for (int i = 0; i < arrayLength; i++) {
+            if (userGuess_UPPER == wordsArray_UPPER[i]) //checks to see if word exists in wordbank
             {
-                console::clearConsole(); //clears console
-                std::cout <<"That word does not exist in the word-bank..." << std::endl;
-                std::cout << "Please try again" << std::endl;
-                std::cout <<"\nInput: ";
-                std::cin >> userGuess;
+                realWord = true;
             }
         }
+        if (!realWord) //If the user does not guess an existing word
+        {
+            //console::clearConsole(); //clears console
+            std::cout <<"That word does not exist in the word-bank..." << std::endl;
+            std::cout << "Please try again" << std::endl;
+            //std::cout <<"\nInput: ";
+            //std::cin >> userGuess;
+        }
+
     }
     return userGuess;
 }
