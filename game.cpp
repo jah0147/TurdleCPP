@@ -114,8 +114,15 @@ bool game::guessWord(int tries,
 
                 if (!realWord)
                 {
-                    std::cout << "That is not a word in the word bank!" << std::endl;
-                    std::cout << "Please try again..." << std::endl;
+                    if (difficulty == 1) {
+                        std::cout << "Please type no more or less than "
+                                  << randWord_UPPER.length() << " letters!" << std::endl;
+                        std::cout << "Please try again..." << std::endl;
+                    }
+                    else {
+                        std::cout << "That is not a word in the word bank!" << std::endl;
+                        std::cout << "Please try again..." << std::endl;
+                    }
                 }
 
                 userGuess = userInputCase(tries, quit); //Checks if user inputs a command or just a word
@@ -126,13 +133,10 @@ bool game::guessWord(int tries,
                 }
                 if (!quit) {
                     if (difficulty == 1) { //if easy mode
-                        while (userGuess.length() != randWord.length()) {
-                            console::clearConsole();
-
-                            std::cout << "Please type no more or less than "
-                                      << randWord.length() << " letters!" << std::endl;
-                            std::cout << "Please try again..." << std::endl;
-                            userGuess = userInputCase(tries, quit);
+                        checkIfWord(difficulty, userGuess, wordsArray_UPPER);
+                        if (realWord)
+                        {
+                            userGuess = checkIfWord(difficulty, userGuess, wordsArray_UPPER);
                         }
                     }
                     else { //if medium or hard mode
@@ -147,7 +151,7 @@ bool game::guessWord(int tries,
             if ((difficulty != 1) & (realWord)) {
                 tries--;
             }
-            else if (difficulty == 1)
+            else if ((difficulty == 1) && (userGuess.length() == randWord.length()))
             {
                 tries --;
             }
@@ -329,7 +333,16 @@ std::string game::checkIfWord(int difficulty,
                   std::string userGuess,
                   std::string wordsArray_UPPER[])
 {
-    if (difficulty != 1) //if the difficulty is not set to easy (this is a mess)
+    if (difficulty == 1)
+    {
+        realWord = false;
+        std::string userGuess_UPPER = stringChangeCase(userGuess, UPPER_CASE);
+        if (userGuess_UPPER.size() == randWord_UPPER.size())
+        {
+            realWord = true;
+        }
+    }
+    else if (difficulty != 1) //if the difficulty is not set to easy (this is a mess)
     {
         realWord = false;
 
@@ -340,15 +353,6 @@ std::string game::checkIfWord(int difficulty,
                 realWord = true;
             }
         }
-        if (!realWord) //If the user does not guess an existing word
-        {
-            //console::clearConsole(); //clears console
-            std::cout <<"That word does not exist in the word-bank..." << std::endl;
-            std::cout << "Please try again" << std::endl;
-            //std::cout <<"\nInput: ";
-            //std::cin >> userGuess;
-        }
-
     }
     return userGuess;
 }
