@@ -233,7 +233,8 @@ std::string game::userInputCase(int &tries,
         else if (usrInput == "/cheat") {usrCommand = CHEAT;}
         else if (usrInput == "/debug") {usrCommand = DEBUG;}
         else if (usrInput == "/wordlist") {usrCommand = WORDLIST;}
-        else {usrCommand = NOTCOMMAND;} //if user inputs a non-existent command
+        else if (usrInput == "/help") {usrCommand = HELP;}
+        else {usrCommand = HELP;} //if user inputs a non-existent command
     }
     else {
         checkIfCommand = 0; //not command, should be a user guess
@@ -311,6 +312,16 @@ std::string game::userInputCase(int &tries,
                     std::cout << "What would you like to change the wordlist to?" << std::endl;
                     std::cout << "Input: ";
                     std::cin >> wordlist;
+                    break;
+                case HELP:
+                    std::cout << "\n--------------------------HELP MENU--------------------------" << std::endl;
+                    std::cout << "--------------------------------------------------------------" << std::endl;
+                    std::cout << "                          List of Commands" << std::endl;
+                    std::cout <<"\n"; //just adding space
+                    std::cout << "           /quit       -Quits the game" << std::endl;
+                    std::cout << "           /cheat      -Opens the cheat menu" << std::endl;
+                    std::cout << "           /wordlist   -Lets you change the current wordlist" <<std::endl;
+                    std::cout << "--------------------------------------------------------------" << std::endl;
                     break;
                 case NOTCOMMAND:
                     std::cout << "That is not a valid command..." << std::endl;

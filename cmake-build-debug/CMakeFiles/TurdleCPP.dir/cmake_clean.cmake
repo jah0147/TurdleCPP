@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/TurdleCPP.dir/GUI.cpp.obj"
+  "CMakeFiles/TurdleCPP.dir/GUI.cpp.obj.d"
   "CMakeFiles/TurdleCPP.dir/console.cpp.obj"
   "CMakeFiles/TurdleCPP.dir/console.cpp.obj.d"
   "CMakeFiles/TurdleCPP.dir/delay.cpp.obj"

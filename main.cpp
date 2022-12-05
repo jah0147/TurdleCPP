@@ -11,7 +11,8 @@
 bool restartGame(bool continueGame,
                  int triesAm,
                  int difficulty,
-                 std::string wordsArray[]){
+                 std::string wordsArray[])
+{
         wordGen wordGen;
         int numOfLinesInList = wordGen.lineNum();
         std::string randWord = wordGen.selectWord(wordsArray, numOfLinesInList);
@@ -35,7 +36,7 @@ wordGen wordGen;
 //sound.introSound();
 
 //console
-console.printArt();
+//console.printArt();
 console.welcome();
 delay.DELAY_IN_SECONDS(4); //3 second delay
 console::clearConsole(); //should clear console screen

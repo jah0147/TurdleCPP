@@ -128,6 +128,30 @@ TurdleCPP/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\TurdleCPP.dir\build.make CMakeFiles/TurdleCPP.dir/build
 .PHONY : TurdleCPP/fast
 
+GUI.obj: GUI.cpp.obj
+.PHONY : GUI.obj
+
+# target to build an object file
+GUI.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TurdleCPP.dir\build.make CMakeFiles/TurdleCPP.dir/GUI.cpp.obj
+.PHONY : GUI.cpp.obj
+
+GUI.i: GUI.cpp.i
+.PHONY : GUI.i
+
+# target to preprocess a source file
+GUI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TurdleCPP.dir\build.make CMakeFiles/TurdleCPP.dir/GUI.cpp.i
+.PHONY : GUI.cpp.i
+
+GUI.s: GUI.cpp.s
+.PHONY : GUI.s
+
+# target to generate assembly for a file
+GUI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TurdleCPP.dir\build.make CMakeFiles/TurdleCPP.dir/GUI.cpp.s
+.PHONY : GUI.cpp.s
+
 console.obj: console.cpp.obj
 .PHONY : console.obj
 
@@ -281,6 +305,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... TurdleCPP
+	@echo ... GUI.obj
+	@echo ... GUI.i
+	@echo ... GUI.s
 	@echo ... console.obj
 	@echo ... console.i
 	@echo ... console.s

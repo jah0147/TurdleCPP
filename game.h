@@ -61,6 +61,7 @@ private:
         CHEAT, //cheat command
         DEBUG, //debug command
         WORDLIST, //change wordlist command (this should restart the game with the new wordlist)
+        HELP,
         NOTCOMMAND
     };
 

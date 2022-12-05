@@ -59,7 +59,7 @@ bool console::checkIfNum(std::string str)
 void console::gameMode(int *difficulty, int *triesAm)
 {
     //std::cout << "PLEASE SELECT YOUR DIFFICULTY" <<std::endl;
-    std::cout<<"------------------------------PLEASE SELECT YOUR DIFFICULTY------------------------------" << std::endl;
+    std::cout <<"------------------------------PLEASE SELECT YOUR DIFFICULTY-----------------------------" << std::endl;
     std::cout << "                                  [1] EASY - TYPE 1" <<std::endl;
     std::cout << "                                  [2] MEDIUM - TYPE 2" <<std::endl;
     std::cout << "                                  [3] HARD - TYPE 3" <<std::endl;

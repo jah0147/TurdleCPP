@@ -82,6 +82,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/jacob_howard/CLionProjects/TurdleCPP/GUI.cpp">
+			<Option target="TurdleCPP"/>
+		</Unit>
+		<Unit filename="C:/Users/jacob_howard/CLionProjects/TurdleCPP/GUI.h">
+			<Option target="TurdleCPP"/>
+		</Unit>
 		<Unit filename="C:/Users/jacob_howard/CLionProjects/TurdleCPP/console.cpp">
 			<Option target="TurdleCPP"/>
 		</Unit>
